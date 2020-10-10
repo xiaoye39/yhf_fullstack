@@ -41,7 +41,28 @@
         .weui-btn_loading.weui-btn_primary{
             background-color: #06ae56;
             color: #fff;
+            position: relative;
         }
+        .weui-loading{
+            background-image: url(./loading.png);
+            width: 20px;
+            height: 20px;
+            background-size: 100%;
+            display: inline-block;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            animation: circle 2s linear infinite;
+        }
+        @keyframes circle{
+            from{
+                -webkit-transform: rotate(0deg);
+            }
+            to{
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
         /* modifier */
         .weui-btn_large{
 
