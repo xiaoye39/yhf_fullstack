@@ -7,6 +7,7 @@ ul li
 
 #toast
     display none
+
 .movie
     width 100%
     &-head
@@ -55,10 +56,11 @@ ul li
                         vertical-align middle //拦腰对齐
                 .btn-wrap
                     display flex
-                    margin-top 10px
+                    // margin-top 10px
                     .flex
                         flex 1
                         background-color #58585b
+                        // margin 10px 10px 10px 0
                         height 32px
                         line-height 32px
                         color #ffffff
@@ -66,23 +68,21 @@ ul li
                         border-radius 4px
                         &:first-child
                             margin-right 10px
+                        .iconfont
+                            font-size 14px
         &__rate
-            background-color #1e2025
+            background-color #000000
             padding 10px
             border-radius 4px
             margin-top 15px
             .rate-title
-                font-size 10px
                 display flex
                 justify-content space-between
                 &__left
-                    font-size 13px
                     color #ffffff
                     .icon-maoyandianying
                         color red
-                        // font-size 10x
                 &__right
-                    // font-size 10px
                     color #68686b
             .rate-detail
                 display flex
@@ -93,36 +93,38 @@ ul li
                         // margin-left 23px
                         text-align center
                         h2
-                            color #fcc330
+                            color #fcc300
                         p
-                            color #68686p
-                            font-size 10px
+                            color #68686b
+                            // font-size 10px
                     .star
-                        text-align right
+                        display flex
+                        align-items center
                         // margin-right 23px
+                        text-align right
                         .list
                             margin 2px 0
                             display flex
                             align-items center
-                            .star-num
-                                width 40px
-                                font-size 0
-                                img
-                                    width 8px
-                                    height 8px
-                            .persent
-                                width 76px
-                                height 4px
-                                background-color #252528
-                                position relative
-                                .position-val
-                                    display block
-                                    position absolute
-                                    left 0
-                                    top 0
-                                    height 100%
-                                    background-color #fcc300
-                                    width 80%
+                        .star-num
+                            width 40px
+                            font-size 0
+                            img
+                                width 8px
+                                height 8px
+                        .persent
+                            width 76px
+                            height 4px
+                            background-color #252528
+                            position relative
+                            .persent-val
+                                display block
+                                position absolute
+                                left 0
+                                top 0
+                                height 100%
+                                background #fcc300
+                                width 80%
                 &__right
                     flex 266
                     display flex
@@ -143,7 +145,7 @@ ul li
             overflow hidden
         .arrow 
             text-align center
-            font-size 16px
+            // font-size 16px
             .iconfont
                 display block
                 transform rotateZ(180deg)
@@ -151,10 +153,27 @@ ul li
         .arrow .up
             display block
             transform rotateZ(180deg)
-
-
-
-
+    &-img
+        border-top 1px solid #d9d9d9
+        img 
+            width 100%
+    &-actors
+        padding 5px 15px 15px 15px
+        ul 
+            display flex
+            width 100%
+            overflow hidden
+            .left-margin
+                margin-right 6px
+                .name
+                    display block
+                    text-align center
+                    font-size 16px
+                .role
+                    display block
+                    text-align center
+                    font-size 14px
+                    color #979797
            
 
 

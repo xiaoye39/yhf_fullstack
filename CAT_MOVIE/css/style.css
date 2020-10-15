@@ -66,7 +66,6 @@ ul li {
 }
 .movie-info__desc .info-container .btn-wrap {
   display: flex;
-  margin-top: 10px;
 }
 .movie-info__desc .info-container .btn-wrap .flex {
   flex: 1;
@@ -80,19 +79,20 @@ ul li {
 .movie-info__desc .info-container .btn-wrap .flex:first-child {
   margin-right: 10px;
 }
+.movie-info__desc .info-container .btn-wrap .flex .iconfont {
+  font-size: 14px;
+}
 .movie-info__rate {
-  background-color: #1e2025;
+  background-color: #000;
   padding: 10px;
   border-radius: 4px;
   margin-top: 15px;
 }
 .movie-info__rate .rate-title {
-  font-size: 10px;
   display: flex;
   justify-content: space-between;
 }
 .movie-info__rate .rate-title__left {
-  font-size: 13px;
   color: #fff;
 }
 .movie-info__rate .rate-title__left .icon-maoyandianying {
@@ -112,13 +112,14 @@ ul li {
   text-align: center;
 }
 .movie-info__rate .rate-detail__left .grade h2 {
-  color: #fcc330;
+  color: #fcc300;
 }
 .movie-info__rate .rate-detail__left .grade p {
-  color: rgba(102,136,102,0.533) 6p;
-  font-size: 10px;
+  color: #68686b;
 }
 .movie-info__rate .rate-detail__left .star {
+  display: flex;
+  align-items: center;
   text-align: right;
 }
 .movie-info__rate .rate-detail__left .star .list {
@@ -126,27 +127,27 @@ ul li {
   display: flex;
   align-items: center;
 }
-.movie-info__rate .rate-detail__left .star .list .star-num {
+.movie-info__rate .rate-detail__left .star .star-num {
   width: 40px;
   font-size: 0;
 }
-.movie-info__rate .rate-detail__left .star .list .star-num img {
+.movie-info__rate .rate-detail__left .star .star-num img {
   width: 8px;
   height: 8px;
 }
-.movie-info__rate .rate-detail__left .star .list .persent {
+.movie-info__rate .rate-detail__left .star .persent {
   width: 76px;
   height: 4px;
   background-color: #252528;
   position: relative;
 }
-.movie-info__rate .rate-detail__left .star .list .persent .position-val {
+.movie-info__rate .rate-detail__left .star .persent .persent-val {
   display: block;
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  background-color: #fcc300;
+  background: #fcc300;
   width: 80%;
 }
 .movie-info__rate .rate-detail__right {
@@ -174,7 +175,6 @@ ul li {
 }
 .movie-desc .arrow {
   text-align: center;
-  font-size: 16px;
 }
 .movie-desc .arrow .iconfont {
   display: block;
@@ -184,4 +184,32 @@ ul li {
 .movie-desc .arrow .up {
   display: block;
   transform: rotateZ(180deg);
+}
+.movie-img {
+  border-top: 1px solid #d9d9d9;
+}
+.movie-img img {
+  width: 100%;
+}
+.movie-actors {
+  padding: 5px 15px 15px 15px;
+}
+.movie-actors ul {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.movie-actors ul .left-margin {
+  margin-right: 6px;
+}
+.movie-actors ul .left-margin .name {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+}
+.movie-actors ul .left-margin .role {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #979797;
 }
