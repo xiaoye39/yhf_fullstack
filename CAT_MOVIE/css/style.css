@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+ul li {
+  list-style: none;
+}
 #toast {
   display: none;
 }
@@ -26,7 +29,7 @@
   text-align: center;
 }
 .movie-info {
-  padding: 10px;
+  padding: 15px;
   background-color: #1e2025;
 }
 .movie-info__desc {
@@ -78,5 +81,107 @@
   margin-right: 10px;
 }
 .movie-info__rate {
-  background: #fff;
+  background-color: #1e2025;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+.movie-info__rate .rate-title {
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.movie-info__rate .rate-title__left {
+  font-size: 13px;
+  color: #fff;
+}
+.movie-info__rate .rate-title__left .icon-maoyandianying {
+  color: #f00;
+}
+.movie-info__rate .rate-title__right {
+  color: #68686b;
+}
+.movie-info__rate .rate-detail {
+  display: flex;
+}
+.movie-info__rate .rate-detail__left {
+  flex: 454;
+  display: flex;
+}
+.movie-info__rate .rate-detail__left .grade {
+  text-align: center;
+}
+.movie-info__rate .rate-detail__left .grade h2 {
+  color: #fcc330;
+}
+.movie-info__rate .rate-detail__left .grade p {
+  color: rgba(102,136,102,0.533) 6p;
+  font-size: 10px;
+}
+.movie-info__rate .rate-detail__left .star {
+  text-align: right;
+}
+.movie-info__rate .rate-detail__left .star .list {
+  margin: 2px 0;
+  display: flex;
+  align-items: center;
+}
+.movie-info__rate .rate-detail__left .star .list .star-num {
+  width: 40px;
+  font-size: 0;
+}
+.movie-info__rate .rate-detail__left .star .list .star-num img {
+  width: 8px;
+  height: 8px;
+}
+.movie-info__rate .rate-detail__left .star .list .persent {
+  width: 76px;
+  height: 4px;
+  background-color: #252528;
+  position: relative;
+}
+.movie-info__rate .rate-detail__left .star .list .persent .position-val {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #fcc300;
+  width: 80%;
+}
+.movie-info__rate .rate-detail__right {
+  flex: 266;
+  display: flex;
+  align-items: center;
+}
+.movie-info__rate .rate-detail__right img {
+  height: 46px;
+}
+.movie-desc {
+  padding: 15px;
+}
+.movie-desc .content {
+  overflow: auto;
+  transition: all 1.4s ease;
+}
+.movie-desc .line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  word-wrap: break-word;
+  word-wrap: break-all;
+  overflow: hidden;
+}
+.movie-desc .arrow {
+  text-align: center;
+  font-size: 16px;
+}
+.movie-desc .arrow .iconfont {
+  display: block;
+  transform: rotateZ(180deg);
+  transition: all 1.4s ease;
+}
+.movie-desc .arrow .up {
+  display: block;
+  transform: rotateZ(180deg);
 }
