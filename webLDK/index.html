@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>江西赛维LDK太阳能高科技有限公司</title>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="telephone=no" name="format-detection" />
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+</head>
+
+<body>
+<div class="warp">
+	<div class="header clearfloat">
+    	<div class="fl home_icon"><a class="dis_block" href="index.html"><img src="images/home_icon.png" width="37" height="33"></a></div>
+  	  	<img class="logo" src="images/saiwei3.png" width="175" height="85"  alt=""/>
+    </div>
+    <!--顶部导航 start-->
+  	<div class="nav">
+    	<ul class=" clearfloat">
+        	<li class="fl current"><a class="dis_block" href="news.html">赛维新闻</a></li>
+            <li class="fl"><a class="dis_block" href="a_week_topic.html">壹周话题</a></li>
+            <li class="fl"><a class="dis_block" href="image_meiling.html"> LDK</a></li>
+            <li class="fl"><a class="dis_block" href="activities.html">赛维荣誉</a></li>
+            <li class="fl"><a class="dis_block" href="life_service.html">生活服务</a></li>
+            <li class="fl"><a class="dis_block" href="product.html">产品博览</a></li>
+            <li class="fl"><a class="dis_block" href="contact.html">联系我们</a></li>
+            <li class="fl"><a class="dis_block" href="a_week_topic.html">论坛</a></li>
+        </ul>
+    </div>
+    <!--顶部导航 end-->
+    <!--banner start-->
+    <div class="banenr" id="banner_box">
+    	<ul>
+        	<li><a href="#"><img class="dis_block" src="images/lunbo1.jpg"></a></li>
+            <li><a href="#"><img class="dis_block" src="images/lunbo2.jpg"></a></li>
+            <li><a href="#"><img class="dis_block" src="images/lunbo5.png"></a></li>
+            <li><a href="#"><img class="dis_block" src="images/lunbo4.png"></a></li>
+        </ul>
+    	<ol>
+            <script>
+                $("ul li").each(function () {
+                    document.write('<li class=""></li>')
+                });
+            </script>
+        </ol>
+        <script>
+			$(function () {
+				new Swipe(document.getElementById('banner_box'), {
+					speed: 500,
+					auto: 3000,
+					callback: function () {
+						var lis = $(this.element).next("ol").children();
+						lis.removeClass("on").eq(this.index + 1).addClass("on");
+					}
+				});
+			});
+		</script>
+    </div>
+    <!--banner end-->
+    <!--main start-->
+    <div class="main">
+    	<div class="clearfloat m_block1">
+        	<div class="fl news">
+            	<div class="news_ca"><a class="dis_block" href="article.html">
+           	    	<img class="dis_block" src="images/index_pic.png" width="306" height="216"> 
+                    <span class="news_text c_white"><em class="dis_block">经典“智”作 江西赛维科技</em></span></a>
+                </div>
+                <div class="news_cb"><a class="dis_block" href="#">
+           	    	<img class="dis_block" src="images/index_pic.png" width="306" height="216"> 
+                    <span class="news_text c_white"><em class="dis_block">经典“智”作 江西赛维科技</em></span></a>
+                </div>
+            </div>
+            <div class="image_meiling">
+            	<a class="dis_block" href="image_meiling.html">影像赛维</a>
+            </div>
+        </div>
+        <div class="clearfloat">
+        	<div class="fl employees_draft">
+            	<a class="dis_block" href="#">员工投稿</a>
+            </div>
+        	<div class="fr meiling_service">
+            	<div class="lohas_meiling">
+           	    	<a class="dis_block" href="activities.html">赛维荣誉</a>
+                </div>
+                <div class="live_service">
+           	    	<a class="dis_block" href="life_service.html">生活服务</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main end-->
+    
+    <!--bottom start-->
+  	<div class="bottom">
+    	<ul class="clearfloat">
+        	<li class="fl tell current"><a href="#"><span>电话</span></a></li>
+            <li class="fl info"><a href="#"><span>信息</span></a></li>
+            <li class="fl map"><a href="#"><span>地图</span></a></li>
+            <li class="fl message"><a href="#"><span>留言</span></a></li>
+        </ul>
+  	</div>
+    <!--bottom end-->
+</div>
+</body>
+</html>
