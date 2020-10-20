@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<body>
+    <form action="check.php" method="post" name="f1">
+        <p>
+            <!-- <label for="username">用户名</label> -->
+            <input type="text" name="username" id="username" 
+            required placeholder="用户名">
+        </p>
+        <p>
+            <label for="pwd">密码</label>
+            <input type="passward" name="pwd" id="pwd"
+            placeholder="密码">
+        </p>
+        <p>
+            性别：
+            <label><input type="radio" name="sex" value="1" checked >男</label>
+            <label> <input type="radio" name="sex" value="0">女</label>
+        </p>
+        <p>
+            你到过的城市：
+            <label><input type="checkbox" name="city" value="bj">北京</label>
+            <label><input type="checkbox" name="city" value="sh">上海</label>
+            <label><input type="checkbox" name="city" value="gz">广州</label>
+        </p>
+        <p>
+            你喜欢的颜色:
+            <select name="color" multiple>
+                <option value="red" selected>红色</option>
+                <option value="blue">蓝色</option>
+                <option value="green">绿色</option>
+                <option value="black">黑色</option>
+                <option value="purple">紫色</option>
+            </select>
+        </p>
+        <p>
+              <label for="msg">留言</label>
+              <textarea name="msg" id="msg" cols="30" rows="5"></textarea>
+        </p>
+        <p>
+            <!-- <input type="submit" value="登录" > -->
+            <button type="submit">登录</button>
+            <input type="reset" value="重置">
+            <input type="button" value="自定义按钮" onclick="javascript:alert('您好！')">
+        </p>
+
+    </form>
+</bod
+</html>

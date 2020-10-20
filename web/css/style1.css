@@ -1,0 +1,11 @@
+table{
+    /*background-color: #f0f;
+    border-width: 10px;
+    border-style: dashed;*/
+    border: 1px solid #f00;
+    width: 50%;
+    border-collapse: collapse;
+}
+td{
+    border: solid 1px #f00;
+}

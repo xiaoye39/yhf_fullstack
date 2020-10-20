@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实例二</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-size: 12px;
+            padding: 50px;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+        .news{
+            width: 300px;
+            border: 1px solid #ece3da;
+        }
+        .news h3{
+            height: 29px;
+            line-height: 29px;
+            background: url('images/7.png') repeat-x;
+            color: #8c0000;
+            position: relative;
+        }
+        .news h3 span{
+            background: url('#') no-repeat 10px 4px;
+            padding-left: 26px;
+        }
+        .more{
+            /* float: right;
+            margin-top: 12px; */
+            position: absolute;
+            right: 6px;
+            bottom: 1px;
+        }
+        .news ul{
+            list-style-position: inside;
+            list-style-image: url("#");
+            padding: 6px 10px;
+        }
+        .news ul li{
+            padding: 4px 10px;
+            border-bottom: 1px dotted #aaa;
+        }
+        .time{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="news">
+        <h3> 
+            <span>学院通告</span>
+            <a href="#">
+                <img src="#" alt="more" class="more">
+            </a>
+        </h3>
+        <!-- ul>li*8>a[href="#"]+span.time{2020-09-23}= -->
+        <ul>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+            <li><a href="#">学院通知001</a><span class="time">2020-09-23</span></li>
+        </ul>
+    </div>
+</body>
+</html>

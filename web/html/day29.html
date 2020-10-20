@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>询问式对话框</title>
+</head>
+<body>
+    <input type="text" id="message" value="你是音乐爱好者吗?">
+    <br><br>
+    <input type="button" value="确定" onclick="yes();">
+    <input type="button" value="取消" onclick="no();">
+    <script>
+        function yes() 
+        {
+            var message = document.all("message");
+            message.value = window.prompt(message.value,"欢迎您来听音乐!");
+        }
+        function no() 
+        {
+            var message = document.all("message");
+            message.value = window.prompt(message.value,"再见，欢迎下次光临!");
+        }
+    </script>
+</body>
+</html>
