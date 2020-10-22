@@ -17,6 +17,32 @@ Page({
     takeSession: false,
     requestResult: ''
   },
+  upload () {
+    // console.log('点了按钮');
+    // 云开发， SQL ,
+    // html 
+    // weixin 给与小程序能力
+    // 在相机里选择
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        console.log(res);
+        const tempFilePaths = res.tempFilePaths
+        for (var i = 0; i < tempFilePaths.length; i++) {
+          let randString = + new Date() + '' + Math.floor(Math.random()*1000000) + '.png'
+          wx.cloud.uploadFile({
+            cloudPath: randString,
+            filePath: tempFilePaths[i],
+            success: res => {
+              console.log(res);
+            }
+          })
+        }
+      }
+    })
+  },
 
   onLoad: function() {
     productsCollection
