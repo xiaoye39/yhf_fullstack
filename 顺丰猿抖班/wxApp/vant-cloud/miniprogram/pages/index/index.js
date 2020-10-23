@@ -24,14 +24,20 @@ Page({
   createGroup() {
     const self = this
     if (self.data.groupName === '') {
-      
+      Notify({
+        message: '起个名字吧',
+        duration: 3000,
+        selector: '#notify-selector',
+        background: '#dc3545'
+      });
       self.setData({
         newGroupModal: true
       })
-    }
+      return
+    } 
     // 把groupName传给后端
     wx.cloud.callFunction({
-      name: 'createGroup', 
+      name: 'createGroup',
       data: {
         groupName: self.data.groupName
       },
@@ -44,7 +50,7 @@ Page({
           message: '新建成功',
           duration: 3000,
           selector: '#notify-selector',
-          backgroundColor: '#28a745'
+          background: '#28a745'
         });
         setTimeout(() => {
           wx.switchTab({

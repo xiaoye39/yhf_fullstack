@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    groupList()
+    groupList: []
   },
 
   /**
@@ -33,12 +33,13 @@ Page({
       data: {},
       success(res) {
         console.log(res);
+        // ....
       },
       fail(err) {
-        console.log(err);
+        console.log(err)
       },
       complete() {
-        wx.showNavigationBarLoading()
+        wx.hideNavigationBarLoading()
       }
     })
   },
