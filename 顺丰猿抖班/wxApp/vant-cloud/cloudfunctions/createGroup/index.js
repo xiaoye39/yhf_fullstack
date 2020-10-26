@@ -1,6 +1,6 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const env = 'ttt-fzsgn'
+const env = 'xiaoye-7gmspm7gb3a88616'
 
 cloud.init()
 const db = cloud.database({ env }) // 指明云函数生效的环境
