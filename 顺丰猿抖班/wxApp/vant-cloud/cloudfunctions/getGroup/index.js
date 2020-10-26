@@ -1,6 +1,6 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const env = 'lm-lesson'
+const env = 'ttt-fzsgn'
 
 cloud.init()
 const db = cloud.database({ env })
