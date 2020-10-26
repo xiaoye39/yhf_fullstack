@@ -7,7 +7,7 @@
       </view>
       我的群组
     </view>
-    <view class="public-item" wx:for="{{groupList}}" wx:key="{{index}}">
+    <view class="public-item" wx:for="{{groupList}}" wx:key="{{item._id}}">
       <view class="public-item-name">{{item.name}}</view>
       <view>
         <image src="{{item.createBy.avatarUrl}}" class="creater"/>

@@ -11,11 +11,11 @@ exports.main = async (event, context) => {
   // 查找user-group这个库里面是否具有该openId // 查找where() .get()
   // 按照这个openId把user-group里对应的数据取出
   // 去group这个库里面查找所有的_id和groupId相同的数据
-  let groupList = await db.collection('user-group').where({ //{ data: [] }
+  let groupList = await db.collection('user-group').where({ // { data: [] }
     userId: openId
   }).get()
   let returnResult = []
-  for(let item of groupList.data) {
+  for (let item of groupList.data) {
     const oneGroup = await db.collection('group').where({
       _id: item.groupId,
       deleted: false
@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
 
     if (oneGroup.data.length > 0) {
       const userInfo = await db.collection('user').where({
-        openId: oneGroup.data[0].createBy 
+        openId: oneGroup.data[0].createBy
       }).get()
       oneGroup.data[0].createBy = userInfo.data[0]
       oneGroup.data[0].relateUserGroupId = item._id

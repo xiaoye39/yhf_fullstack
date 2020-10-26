@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
   const checkUser = await db.collection('user').where({
     openId: userInfo.openId
   }).get()
-  // 已经存在该用户
+  // 已经存在该用户,更新用户信息
   if (checkUser.data.length > 0) {
     await db.collection('user').doc(checkUser.data[0]._id)
       .update({
