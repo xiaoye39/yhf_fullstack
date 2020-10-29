@@ -18,7 +18,7 @@
 }
 .title-right{
     display: flex;
-    align-items: center;
+    align-items: center;/*y轴居中显示*/
     margin-right: 30rpx;
 }
 .title-right .more{
@@ -26,16 +26,15 @@
     color: #42bd55;
 }
 .title-right .arrow{
-    width: 12rpx;
     height: 12rpx;
-    border:1px solid #42bd55;
-    border-top: none;
-    border-left: none;
-    transform: rotateZ(-45deg);
+    width: 12rpx;
+    border-top: 1px solid  #42bd55;
+    border-right: 1px solid  #42bd55;
+    transform: rotateZ(45deg);
 }
 .scroll-view__movie{
     height: 402rpx;
-    word-spacing: normal;
+    white-space: nowrap;
 }
 .scroll-view__movie .item{
     margin-left: 30rpx;
