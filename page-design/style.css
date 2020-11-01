@@ -55,3 +55,17 @@
         width: 100%;
     }
 }
+.body-one{
+    width: 100%;
+    display: flex;
+}
+.body-one_left{
+    flex: 872;
+    margin: 0 auto;
+}
+.body-one_right{
+    flex: 568;
+}
+.body-one_content{
+    
+}
