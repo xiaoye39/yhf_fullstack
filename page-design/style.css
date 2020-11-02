@@ -125,3 +125,85 @@ p.bottom{
 	height: 724px;
 	background-color: #ededed;
 }
+.body-two{
+    width: 100%;
+    height: 675px;
+    background-color: #f6f5f3;
+    background: url('./image/pen-holder.png') no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.body-two_earphones{
+    width: 162px;
+    height: 200px;
+    position: absolute;
+    display: inline-block;
+    margin-left: 1114px;
+    background-color: #f6f5f3;
+}
+.body-two_text{
+    width: 1120px;
+    height: 353px;
+    margin: 0 auto;
+    padding-top: 138px;
+}
+.body-two_container1{
+    width: 459px;
+    height: 60px;
+    margin: 0 auto;
+}
+p.container1-header{
+    font-family: Exo-Medium;
+	font-size: 8px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 3px;
+    color: #ff6d6d;
+    text-align: center;
+}
+p.container1-title{
+    font-family: Exo-Medium;
+	font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 2px;
+    color: #282828;
+    text-align: center;
+    padding-top: 15px;
+}
+.photo, .plane, .bulb{
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+}
+.body-two_container2{
+    display: flex;
+    margin-top: 91px;
+}
+.body-text_middle{
+    float: 1;
+    text-align: center;
+}
+.body-text_middle_title{
+    margin: 0 auto;
+    font-family: Exo-Medium;
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50px;
+	letter-spacing: 1px;
+    color: #282828;
+    padding-top: 30px;
+}
+.body-text_middle_content{
+    text-align: left;
+    font-family: Exo-Medium;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 26px;
+	letter-spacing: 1px;
+	color: #282828;
+    opacity: 0.66;
+    padding-top: 19px;
+}
