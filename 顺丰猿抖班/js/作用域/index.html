@@ -30,19 +30,32 @@
 
     <script>
         // with 
-        var obj = {
-            a: 1,
-            b: 2,
-            c: 3
+        // var obj = {
+        //     a: 1,
+        //     b: 2,
+        //     c: 3
+        // }
+        // // obj.a = 2
+        // // obj.b = 3
+        // // obj.c = 4
+        // with (obj) {
+        //     a = 3,
+        //     b = 4,
+        //     c = 5
+        // }
+
+        function foo(obj) {
+            with (obj) {
+                a = 2
+            }
         }
-        // obj.a = 2
-        // obj.b = 3
-        // obj.c = 4
-        with (obj) {
-            a = 3,
-            b = 4,
-            c = 5
+        var o1 = {
+            a : 3
         }
+        var o2 = {
+            b : 3
+        }
+        f00(o1)
     </script>
 </body>
 </html>
