@@ -28,7 +28,7 @@
         foo('var b = 3', 1)
     </script> -->
 
-    <script>
+    <!-- <script>
         // with 
         // var obj = {
         //     a: 1,
@@ -45,7 +45,7 @@
         // }
 
         function foo(obj) {
-            with (obj) {
+            with (obj) { // obj.a = 2 
                 a = 2
             }
         }
@@ -56,6 +56,21 @@
             b : 3
         }
         f00(o1)
+        f00(o2)
+        console.log(o2.b);
+    </script> -->
+    <script>
+        function foo(a) {
+            var b = 2
+
+            return function bar() {
+                console.log(4);
+            }
+
+            var c = 3   
+        }
+        var test = foo()
+        test()
     </script>
 </body>
 </html>
