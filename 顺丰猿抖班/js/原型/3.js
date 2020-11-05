@@ -6,7 +6,6 @@ function Person() {
 
 var person = new Person('zhipeng')
 
-
 person.lastName = 'Wang' //没有改动原型属性，只是在自己的对象中添加了lastName属性
 console.log(person.lastName);
 console.log(person);
