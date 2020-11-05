@@ -27,7 +27,6 @@
     <img class="image-item" src="" lazyload="true" data-original="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1225974369,1410483272&fm=26&gp=0.jpg" alt="">
     <script>
         var viewHeight = document.documentElement.clientHeight
-
         function lazyload() {
             var eles = document.querySelectorAll('img[data-original][lazyload]')
             // console.log(eles);
@@ -48,7 +47,6 @@
                 }
             })
         }
-
         lazyload()
         document.addEventListener('scroll', lazyload)
     </script>
