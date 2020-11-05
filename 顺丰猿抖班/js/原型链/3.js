@@ -18,5 +18,5 @@ Person.prototype.toString = function() {
     return 'hehe'
 }
 function Person() {
-
+    
 }
