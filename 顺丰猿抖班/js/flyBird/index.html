@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="wrapBg">
         <!-- 开始的标题 -->
@@ -25,17 +27,17 @@
 
     <script>
         // 拿到这个标题的dom结构
-        
+
         var jsWrapBg = document.getElementById('wrapBg');
         var jsHeadTitle = document.getElementById('headTitle');
         var jsHeadBird = document.getElementById('headBird');
         var blockArr = [];
         var blockDistance = baseObj.randomNum(120, 350);
-        
+
         var Y = 3;  //标题的摆动幅度
         var index = 0;
-        var imgArr = ['./img/bird0.png','./img/bird1.png'];
-        var headWaveTimer = setInterval(headWave,200);
+        var imgArr = ['./img/bird0.png', './img/bird1.png'];
+        var headWaveTimer = setInterval(headWave, 200);
         function headWave() {
             Y = Y * -1;
             // 设置该dom结构的top值
@@ -46,7 +48,7 @@
                 index = 0;
             }
         }
-    
+
         // 草地动画
         var jsGrassLand1 = document.getElementById('grassLand1');
         var jsGrassLand2 = document.getElementById('grassLand2');
@@ -62,31 +64,31 @@
             jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px';
 
             //管道的移动
-           if(blockArr.length) {
-                for(var i = 0; i < blockArr.length; i++) {
+            if (blockArr.length) {
+                for (var i = 0; i < blockArr.length; i++) {
                     blockArr[i].moveBlock() //b.moveBlock()
                     var x = baseObj.rectangleCrashExamine(blockArr[i].downDivWrap, bird.div)
                     var y = baseObj.rectangleCrashExamine(blockArr[i].upDivWrap, bird.div)
                     var z = bird.div.offsetTop >= 390
-                    if(x == true || y == true || z == true){
+                    if (x == true || y == true || z == true) {
                         clearInterval(landTimer)
                         jsWrapBg.onclick = null
                         bird.fallSpeed = 0
                     }
 
                 }
-                if(blockArr[blockArr.length - 1].downDivWrap.offsetLeft < (450 - blockDistance)) {
+                if (blockArr[blockArr.length - 1].downDivWrap.offsetLeft < (450 - blockDistance)) {
                     var newBlock = new Block()
                     newBlock.createBlock()
                     blockArr.push(newBlock)
                 }
-                
-           }
+
+            }
         }
 
         // 开始按钮
         var jsStartBtn = document.getElementById('startBtn');
-        jsStartBtn.onclick = function() {
+        jsStartBtn.onclick = function () {
             jsHeadTitle.style.display = 'none';
             jsStartBtn.style.display = 'none';
             clearInterval(headWaveTimer)
@@ -95,7 +97,7 @@
             bird.flyBird()
             bird.wingWave()
 
-            jsWrapBg.onclick = function() {
+            jsWrapBg.onclick = function () {
                 bird.fallSpeed = -8
             }
 
@@ -106,4 +108,5 @@
         }
     </script>
 </body>
+
 </html>
