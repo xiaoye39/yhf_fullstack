@@ -20,15 +20,15 @@ function test() {
 function fruit() {
     var food = 'apple'
     var obj = {
-        eatFood: function() {
-            if(food != '') {
+        eatFood: function () {
+            if (food != '') {
                 console.log('I am eating' + food);
                 food = ''
             } else {
                 console.log('There is nothing');
             }
         },
-        pushFood: function(myfood) {
+        pushFood: function (myfood) {
             food = myfood
         }
     }
