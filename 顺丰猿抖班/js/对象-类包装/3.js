@@ -35,7 +35,6 @@ str.length = 2
 console.log(str.length); // new String('abcd').length
 
 
-
 //  面试题
 var str = 'abc'
 str += 1  // 'abc1'
