@@ -1,7 +1,0 @@
-{
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "search": "../../components/search/index"
-  },
-  "navigationBarTitleText": "Trendings"
-}

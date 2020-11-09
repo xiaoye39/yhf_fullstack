@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function test() {
     var food = 'apple'
 
@@ -40,46 +39,3 @@ person.eatFood()
 person.eatFood()
 person.pushFood('banana')
 person.eatFood()
-=======
-function test() {
-    var food = 'apple'
-
-    function a() {
-        console.log(food);
-        food = 'banana'
-    }
-    // a()
-
-    function b() {
-        console.log(food);
-    }
-    // b()
-}
-
-// test()
-// a()
-// b()
-
-function fruit() {
-    var food = 'apple'
-    var obj = {
-        eatFood: function() {
-            if(food != '') {
-                console.log('I am eating' + food);
-                food = ''
-            } else {
-                console.log('There is nothing');
-            }
-        },
-        pushFood: function(myfood) {
-            food = myfood
-        }
-    }
-    return obj
-}
-var person = fruit()
-person.eatFood()
-person.eatFood()
-person.pushFood('banana')
-person.eatFood()
->>>>>>> 8c2f71af13b65734be4da0e35ac4852cd248ed77
