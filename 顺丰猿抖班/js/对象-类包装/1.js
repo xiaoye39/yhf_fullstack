@@ -2,11 +2,11 @@ var person = {
   name: 'jiushen',
   age: 20,
   sex: 'boy',
-  drink: function() {
+  drink: function () {
     console.log('I am drinking');
     this.health++
   },
-  smoke: function() {
+  smoke: function () {
     console.log('I am smoking! huazi');
     this.health--
   },
@@ -44,8 +44,8 @@ delete person.sex
 // 对象的创建
 // 1. var obj = {}
 // 2. 构造函数
-      // 1）系统自带的构造函数 Object()
-      // 2）自定义
+// 1）系统自带的构造函数 Object()
+// 2）自定义
 
 
 function Car(color) {
@@ -55,7 +55,7 @@ function Car(color) {
   this.weight = 1000
 
   this.health = 100
-  this.run = function() {
+  this.run = function () {
     this.health--
   }
   this.color = color
