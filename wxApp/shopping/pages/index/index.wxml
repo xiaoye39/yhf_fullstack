@@ -1,9 +1,9 @@
-<!--pages/index/index.wxml-->
+<!-- pages/index/index.wxml -->
 <view class="main">
     <swiper autoplay="true" interval="{{interval}}" circular="true" duration="{{duration}}" indicator-dots="true" indicator-active-color="#fff">
         <block wx:for="{{imgUrls}}" wx:key="{{index}}">
             <swiper-item>
-                <image class="slide-image" width="100%" src="{{item}}"/>
+                <image class="slide-image" width="100%" src="{{item}}" />
             </swiper-item>
         </block>
     </swiper>
@@ -14,12 +14,12 @@
         <view class="select-top">
             <view class="select-top-small">
                 <navigator url="../list/list">
-                     <image class="" src="/image/s1.png"/>
+                    <image class="" src="/image/s1.png" />
                 </navigator>
             </view>
             <view class="select-top-small">
                 <navigator url="../list/list">
-                     <image class="" src="/image/s2.png"/>
+                    <image class="" src="/image/s2.png" />
                 </navigator>
             </view>
         </view>
@@ -27,7 +27,6 @@
             <navigator url="../list/list">
                 <image src="/image/s3.png" />
             </navigator>
-              
         </view>
     </view>
 </view>
