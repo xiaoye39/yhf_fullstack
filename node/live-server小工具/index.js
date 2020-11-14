@@ -8,6 +8,7 @@ const http = require('http')
 const server = http.createServer((req, res) => {
     // res.end('hello world')
     // 127.0.0.1:8080/index.js
+    // <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     if (req.url === '/') {
         const files = []
         fs.readdirSync('./')
