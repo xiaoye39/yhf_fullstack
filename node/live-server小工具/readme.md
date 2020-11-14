@@ -19,4 +19,4 @@ key: value
 <body>
 百度一下
 </body>
-</html>
+<html/>
