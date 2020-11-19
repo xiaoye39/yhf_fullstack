@@ -37,8 +37,27 @@
 // console.log(a);
 
 
-var foo = true
-if (foo) {
-    var a = 2
+// var foo = true
+// if (foo) {
+//     var a = 2
+// }
+// console.log(a);
+
+// function foo(a) {
+//     console.log(a + b);  //4
+// }
+// var b = 2
+// foo(2)
+
+// function foo(a) {
+//     b = a
+//     console.log(a + b);
+// }
+// foo(2)
+
+function foo(a) {
+    var b = a
+    return a + b
 }
-console.log(a);
+var c = foo(2)
+console.log(c);  // 4
