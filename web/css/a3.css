@@ -1,0 +1,93 @@
+*{margin: 0;padding: 0;}
+body{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.container{
+	width: 620px;
+	height: 450px;
+	border: 1px solid #3B3E32;
+	margin: auto;
+}
+.header{
+	width: 620px;
+	height: 100px;
+	background-color: #A8D427;
+	color: #fff;
+}
+.header h1{
+	width: 410px;
+	height: 80px;
+	background: url('/web/images/logo.GIF') no-repeat 5px 5px;
+    text-indent: 10px;
+}
+.header ul li{
+	display: inline-block;
+	float: right;
+}
+.header ul li a{
+	font-size: 14px;
+	padding-right: 10px;
+	text-decoration: none;
+    color: #026700;
+}
+.sidebar1{
+	position: absolute;
+	float: left;
+	width: 140px;
+	height: 320px;
+	background-color: #060;
+}
+.sidebar1 ul{
+	width: 96px;
+	background-color: #99CC00;
+	float: left;
+	list-style: none;
+	margin: 10px 20px;
+}
+.sidebar1 ul li{
+	line-height: center;
+	border-left: 5px solid #FF9900;
+	border-bottom: 1px solid #006600;
+	padding: 4px 12px;
+}
+.sidebar1 ul li a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #000;
+}
+.sidebar1 ul li a.current{
+	color: #717D4F;
+}
+.content{
+	width: 450px;
+	height: 320px;
+	position: relative;
+	float: right;
+	padding: 0px 20px;
+}
+h2{
+	text-align: center;
+	font-size: 14px;
+	border-bottom: 3px double #000;
+	padding-top: 35px;
+	padding-bottom: 2px;
+}
+.content p{
+	text-indent: 2em;
+	font-size: 14px;
+	line-height: 24px;
+	padding-top: 20px;
+	color: #000;
+}
+.footer{
+	height: 30px;
+	width: 620px;
+	float: left;
+	background-color: #f90;
+}
+.footer p{
+	text-align: center;
+	font-size: 14px;
+	padding: 5px 0;
+}
