@@ -18,7 +18,7 @@ io.on('connection', function(socket) {  // 声明一个io的使用
     socket.on('link_to_server', (msg) => {
         console.info(`我收到一个问题 ${msg}`);
         // 响应客户端
-        socket.emit('link_to_client', 'of course')
+        io.emit('link_to_client', msg)
     })
 }) 
 
