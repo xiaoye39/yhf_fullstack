@@ -2,7 +2,7 @@
 
 function throttle(fn, delay) {
     let prev = Date.now() - delay // 上一次点击
-    return function() {
+    return function () {
         let now = Date.now()  // 这一次点击
         let context = this
         let arg = arguments
@@ -11,5 +11,5 @@ function throttle(fn, delay) {
             prev = Date.now()
         }
     }
-    
+
 }
