@@ -43,7 +43,7 @@ export default new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail,
-      // redirect: '/login'
+      redirect: '/login'
     }
   ]
 })
