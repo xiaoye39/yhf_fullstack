@@ -6,14 +6,16 @@
         <el-input
           placeholder="请输入用户名"
           prefix-icon="el-icon-user"
-          v-model="userName">
+          v-model="userName"
+        >
         </el-input>
 
         <el-input
-          placeholder="请输入密码" 
-          prefix-icon="el-icon-lock" 
-          v-model="password" 
-          show-password>
+          placeholder="请输入密码"
+          prefix-icon="el-icon-lock"
+          v-model="password"
+          show-password
+        >
         </el-input>
 
         <el-button type="primary" @click="login">登录</el-button>
@@ -24,19 +26,20 @@
 
 <script>
 export default {
-    data () {
-        return {
-            userName: '',
-            password: ''
-        }
+  data() {
+    return {
+      userName: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      if (this.userName === "admin" && this.password === "123456") {
+        this.$router.push({ path: "/home", query: { user: this.userName } });
+        localStorage.setItem('user', this.userName)
+      }
     },
-    methods: {
-        login() {
-            if(this.userName === 'admin' && this.password === '123456') {
-                this.$router.push({ path: '/home', query: { user: this.userName }})
-            }
-        }
-    }
+  },
 };
 </script>
 
@@ -54,10 +57,10 @@ export default {
   border-radius: 5px;
   text-align: center;
 }
-.wrap{
-    padding: 10px 50px;
+.wrap {
+  padding: 10px 50px;
 }
-input{
-    margin: 10px 0;
+input {
+  margin: 10px 0;
 }
 </style>
