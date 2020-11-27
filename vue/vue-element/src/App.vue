@@ -1,4 +1,7 @@
 <template>
+  <!-- <div class="home">
+    <Form></Form>
+  </div> -->
   <div class="page">
     <p>
       <router-link to="/">首页</router-link> |
@@ -13,11 +16,14 @@
 </template>
 
 <script>
+// import Form from './components/form'
 export default {
   data() {
     return {};
   },
-  components: {},
+  // components: {
+  //   Form
+  // },
 };
 </script>
 
