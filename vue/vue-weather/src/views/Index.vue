@@ -62,7 +62,7 @@ export default {
       localTime: "",
       mapData: {},
       futureMapData: [],
-      seriesData: []
+      seriesData: [],
     };
   },
   created() {
@@ -111,9 +111,9 @@ export default {
           console.log(err, data);
           _this.futureMapData = data.forecasts;
           _this.futureMapData.map((item) => {
-            _this.seriesData.push(item.dayTemp)
-          })
-          
+            _this.seriesData.push(item.dayTemp);
+          });
+
           _this.initEchart();
         });
       });
