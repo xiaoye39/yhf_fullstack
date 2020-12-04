@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="goods">
-      <div class="menu-wrapper">
+      <div class="menu-wrapper" ref="menuWrapper">
         <ul>
           <li class="menu-item"
            @click="selectMenu(index)"
@@ -10,13 +10,38 @@
            :class="{'current': currentIndex === index}"
            >
             <span class="text">
-              <span class="icon"></span>
+              <support-ico  v-if="item.type > 0" :size=3 :type = item.type></support-ico>
               {{item.name}}
             </span>
           </li>
         </ul>
       </div>
-      <div class="foods-wrapper"></div>
+      <div class="foods-wrapper" ref="foodsWrapper">
+        <ul>
+          <li class="food-list" v-for="(item, index) in goods" :key="index" ref="foodList">
+            <h1 class="title">{{item.name}}</h1>
+            <ul>
+              <li class="food-item" v-for="(food, idx) in item.foods" :key="idx">
+                <div class="icon">
+                  <img :src="food.icon" alt="">
+                </div>
+                <div class="content">
+                  <h2 class="name">{{food.name}}</h2>
+                  <p class="desc">{{food.description}}</p>
+                  <div class="extra">
+                    <span class="count">月售{{food.sellCount}}</span>
+                    <span>好评率{{food.rating}}</span>
+                  </div>
+                  <div class="price">
+                    <span class="now">￥{{food.price}}</span>
+                    <span class="old" v-if="food.oldPrice > 0">￥{{food.oldPrice}}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
     <!-- 购物车 -->
   </div>
@@ -24,49 +49,135 @@
 
 <script>
 import { getGoods } from '@/api'
+import BScroll from 'better-scroll'
+import SupportIco from '@/components/support-ico/Support-ico'
 export default {
   data() {
     return {
       goods: [],
-      currentIndex: 0
+      currentIndex: 0,
+      listHeight: []
     }
+  },
+  components: {
+    SupportIco,
   },
   created() {
     getGoods().then(res => {
       console.log(res);
       this.goods = res
+      this.$nextTick(() => {  // 只会在dom渲染完成之后执行
+        this._initScroll()
+        this._calculateHeight()
+      })
     })
   },
   methods: {
     selectMenu(idx) {
       this.currentIndex = idx
+      let foodList = this.$refs.foodList
+      let el = foodList[idx]
+      this.foodsScroll.scrollToElement(el, 300)
+    },
+    _initScroll() {
+      this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+        click: true
+      })
+      this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+        click: true
+      })
+      
+    },
+    _calculateHeight() {
+      let foodList = this.$refs.foodList
+      let height = 0
+      this.listHeight.push(height)
+      for (let i = 0; i < foodList.length; i++) {
+        let item = foodList[i]
+        height += item.clientHeight
+        this.listHeight.push(height)
+      }
+      console.log(this.listHeight);
     }
   }
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang='stylus' scoped>
 @import '../../common/stylus/variable.styl';
 .goods
   display flex
-  position: absolute;
-  top: 177px;
+  position absolute
+  top 177px
   bottom 46px
-  width: 100%;
+  width 100%
   overflow hidden
   .menu-wrapper
     flex 0 0 80px
-    background #f3f5f7
+    width 80px
+    background $color-background-ssss
     .menu-item
-      display table
-      width: 56px;
-      height: 54px;
-      padding: 0 12px; 
-      line-height: 14px;
-      align-items: center;
-      text-align: center;
+      display flex
+      width 60px
+      height 54px
+      padding 0 10px
+      text-align: center; //文本内容居中
+      justify-content: center; //水平居中
+      line-height 14px
+      align-items center //垂直居中
       font-size $fontsize-small
       &.current
-        background: #fff;
-        font-weight: 700;
+        background #fff
+        font-weight 700
+  .foods-wrapper
+    flex 1
+    .title
+      padding-left: 14px;
+      height: 26px;
+      line-height: 26px;
+      border-left: 2px solid #d9dde1;
+      font-size: $fontsize-small;
+      color rgb(147, 153, 159)
+      background: $color-background-ssss;
+    .food-item
+      display flex
+      margin: 18px;
+      padding-bottom: 18px;
+      &:last-child
+        margin-bottom: 0;
+      .icon
+        flex: 0 0 57px;
+        margin-right: 10px;
+        img
+          width: 100%;
+      .content 
+        flex 1
+        .name 
+          margin 2px 0 8px 0
+          height 14px
+          line-height 14px
+          font-size 14px
+          color rgb(7, 17, 27)
+        .desc, .extra 
+          line-height 10px
+          font-size 10px
+          color rgb(147, 153, 159)
+        .desc 
+          line-height 12px
+          margin-bottom 8px
+        .extra 
+          .count 
+            margin-right 12px
+        .price 
+          font-weight 700
+          line-height 24px
+          .now 
+            margin-right 8px
+            font-size 14px
+            color rgb(240, 20, 20)
+          .old 
+            text-decoration line-through
+            font-size 10px
+            color rgb(147, 153, 159)
+
 </style>
