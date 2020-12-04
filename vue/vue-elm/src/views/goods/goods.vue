@@ -55,12 +55,26 @@ export default {
   data() {
     return {
       goods: [],
-      currentIndex: 0,
-      listHeight: []
+      // currentIndex: 0,
+      listHeight: [],
+      scrollY: 0
     }
   },
   components: {
     SupportIco,
+  },
+  computed: {
+    currentIndex() {
+      for (let i = 0; i < this.listHeight.length; i++) {
+        let height1 = this.listHeight[i]
+        let height2 = this.listHeight[i + 1]
+          if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+            return i
+          }
+
+      }
+      return 0
+    }
   },
   created() {
     getGoods().then(res => {
@@ -74,7 +88,7 @@ export default {
   },
   methods: {
     selectMenu(idx) {
-      this.currentIndex = idx
+      // this.currentIndex = idx
       let foodList = this.$refs.foodList
       let el = foodList[idx]
       this.foodsScroll.scrollToElement(el, 300)
@@ -84,9 +98,13 @@ export default {
         click: true
       })
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-        click: true
+        click: true,
+        probeType: 3
       })
-      
+      this.foodsScroll.on('scroll', pos => {
+        console.log(pos);
+        this.scrollY = Math.abs(Math.round(pos.y))
+      })
     },
     _calculateHeight() {
       let foodList = this.$refs.foodList
@@ -100,7 +118,7 @@ export default {
       console.log(this.listHeight);
     }
   }
-};
+}
 </script>
 
 <style lang='stylus' scoped>
