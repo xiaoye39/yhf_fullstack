@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>江西赛维LDK太阳能高科技有限公司</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="telephone=no" name="format-detection" />
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+</head>
+
+<body>
+<div class="warp">
+	<div class="header clearfloat">
+    	
+    	<div class="fl home_icon"><a class="dis_block" href="index.html"><img src="images/home_icon.png" width="37" height="33"></a></div>
+  	  	<img class="logo" src="images/saiwei3.png" width="175" height="85"  alt=""/>
+    </div>
+    
+    <!--顶部导航 start-->
+  	<div class="nav">
+    	<ul class=" clearfloat">
+        	<li class="fl current"><a class="dis_block" href="news.html">赛维新闻</a></li>
+            <li class="fl"><a class="dis_block" href="a_week_topic.html">壹周话题</a></li>
+            <li class="fl"><a class="dis_block" href="image_meiling.html">LDK</a></li>
+            <li class="fl"><a class="dis_block" href="activities.html">赛维荣誉</a></li>
+            <li class="fl"><a class="dis_block" href="life_service.html">生活服务</a></li>
+            <li class="fl"><a class="dis_block" href="product.html">产品博览</a></li>
+            <li class="fl"><a class="dis_block" href="contact.html">联系我们</a></li>
+            <li class="fl"><a class="dis_block" href="a_week_topic.html">论坛</a></li>
+        </ul>
+    </div>
+    <!--顶部导航 end-->
+    
+    <!--banner start-->
+    <div class="banenr news_banner" id="banner_box">
+    	<ul>
+        	<li><a href="#"><img class="dis_block" src="images/topic_banner.png"></a></li>
+            <li><a href="#"><img class="dis_block" src="images/saiwei4.png"></a></li>
+           
+        </ul>
+    	<ol>
+            <script>
+                $("ul li").each(function () {
+                    document.write('<li class=""></li>')
+                });
+            </script>
+        </ol>
+        <script>
+			$(function () {
+				new Swipe(document.getElementById('banner_box'), {
+					speed: 500,
+					auto: 3000,
+					callback: function () {
+						var lis = $(this.element).next("ol").children();
+						lis.removeClass("on").eq(this.index + 1).addClass("on");
+					}
+				});
+			});
+		</script>
+    </div>
+    <!--banner end-->
+    
+    
+    
+    <!--一周话题 start-->
+    <div class="week_topic">
+    	<h3 class="activities_tit life_service_tit">一周话题</h3>
+        <div class="zi_news_list week_topic_list">
+        	<ul class="clearfloat">
+            	<li class="clearfloat">
+                	<h3 class="clearfloat t_l u_tit">
+                    	<img class="dis_block fl mr10" src="images/u_pic.png">
+                        <em class="fr">发表于: 2019-11-13 </em>
+                    	枫叶似火
+                        <span class="dis_block"></span>
+                    </h3>
+                	<div class="clearfloat topic_cont">
+                    	<div class="topic_view_text t_l">
+                        	<h3 class="t_c">赛维科技实力真的很强</h3>
+                            <p>赛维LDK是江西省企业有史以来第一家在美国上市的企业，是中国新能源领域最大的一次IPO。江西塞维IPO融资额高达4.69亿美元，成为继无锡尚德之后中国太阳能产业的又一巨头。2007年8月，赛维完成销售收入4.8亿美元，折合人民币30多亿元。同时，江西塞维于2007年8月向外界宣布将在未来两年中斥资120亿元上马1.5万吨多晶硅项目，项目建成后，其多晶硅年产能将达到1600兆瓦。公司发展很快，公司目前有7000多人...</p>
+							
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            
+            <div class="topic_view_comment">
+            	<h3 class="topic_view_c_tit t_l">评论<span>(110)</span></h3>
+                <form>
+                	<textarea class="dis_block" name="" cols="" rows=""></textarea>
+                    <div class="clearfloat topic_btn">
+                    	<button class="clearfloat fr">发表评论</button>
+                        <span class="clearfloat mr5 fr">还可以输入<em>140</em>字</span>
+                    </div>
+                </form>
+                
+                <div class="topic_view_c_list">
+                    <ul>
+                        <li class="clearfloat">
+                            <img class="dis_block fl" src="images/topic_view_pic.png">
+                            <div class="topic_view_cc fl t_l">
+                                <h3 class="clearfloat">
+                                    <a href="#" class="fr f_15">回复</a>
+                                    咫尺天涯
+                                    <em class="dis_block">今天13:44</em>
+                                </h3>
+                                
+                                <p class="topic_view_cc_text">
+                                	这个是真的，赛维是第一家在美国上市的江西公司
+                                </p>
+                                <blockquote>
+                                	<span>枫叶似火</span>回复<span>咫尺天涯</span>：是的，感同身受，赛维解决了很多人的就业问题
+                                </blockquote>
+                            </div>
+                        </li>
+                        
+                        <li class="clearfloat">
+                            <img class="dis_block fl" src="images/topic_view_pic.png">
+                            <div class="topic_view_cc fl t_l">
+                                <h3 class="clearfloat">
+                                    <a href="#" class="fr f_15">回复</a>
+                                    咫尺天涯
+                                    <em class="dis_block">今天13:44</em>
+                                </h3>
+                                
+                                <p class="topic_view_cc_text">
+                                	赛维促进江西经济的发展
+                                </p>
+                                
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="topic_c_more"><a href="#">更多热门评论>> </a></div>
+                 </div>
+            </div>
+            
+            
+            
+         </div>
+         
+         
+        
+        
+    </div>
+    <!--一周话题 end-->
+    
+    
+    
+    
+    <!--bottom start-->
+  	<div class="bottom">
+    	<ul class="clearfloat">
+        	<li class="fl tell current"><a href="#"><span>电话</span></a></li>
+            <li class="fl info"><a href="#"><span>信息</span></a></li>
+            <li class="fl map"><a href="#"><span>地图</span></a></li>
+            <li class="fl message"><a href="#"><span>留言</span></a></li>
+        </ul>
+  	</div>
+    <!--bottom end-->
+</div>
+</body>
+</html>
