@@ -44,6 +44,7 @@
       </div>
     </div>
     <!-- 购物车 -->
+    <ShopCart></ShopCart>
   </div>
 </template>
 
@@ -51,6 +52,7 @@
 import { getGoods } from '@/api'
 import BScroll from 'better-scroll'
 import SupportIco from '@/components/support-ico/Support-ico'
+import ShopCart from '@/components/shop-cart/Shop-cart'
 export default {
   data() {
     return {
@@ -62,6 +64,7 @@ export default {
   },
   components: {
     SupportIco,
+    ShopCart
   },
   computed: {
     currentIndex() {
