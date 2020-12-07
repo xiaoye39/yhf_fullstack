@@ -4,13 +4,13 @@
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
           <li class="menu-item"
-           @click="selectMenu(index)"
-           v-for="(item, index) in goods"
-           :key="index"
-           :class="{'current': currentIndex === index}"
-           >
+          @click="selectMenu(index)"
+          v-for="(item, index) in goods" 
+          :key="index"
+          :class="{'current' : currentIndex === index}"
+          >
             <span class="text">
-              <support-ico  v-if="item.type > 0" :size=3 :type = item.type></support-ico>
+              <support-ico v-if="item.type > 0" :size=3 :type="item.type"></support-ico>
               {{item.name}}
             </span>
           </li>
@@ -29,12 +29,12 @@
                   <h2 class="name">{{food.name}}</h2>
                   <p class="desc">{{food.description}}</p>
                   <div class="extra">
-                    <span class="count">月售{{food.sellCount}}</span>
-                    <span>好评率{{food.rating}}</span>
+                    <span class="count">月售{{food.sellCount}}份</span>
+                    <span>好评率{{food.rating}}%</span>
                   </div>
                   <div class="price">
-                    <span class="now">￥{{food.price}}</span>
-                    <span class="old" v-if="food.oldPrice > 0">￥{{food.oldPrice}}</span>
+                    <span class="now">¥{{food.price}}</span>
+                    <span class="old" v-if="food.oldPrice">¥{{food.oldPrice}}</span>
                   </div>
                   <!-- + -->
                   <div class="cartcontrol-wrapper">
@@ -48,7 +48,11 @@
       </div>
     </div>
     <!-- 购物车 -->
-    <ShopCart :selectFoods="selectFoods"></ShopCart>
+    <ShopCart 
+      :selectFoods="selectFoods"
+      :deliveryPrice="seller.deliveryPrice"
+      :minPrice="seller.minPrice"
+    ></ShopCart>
   </div>
 </template>
 
@@ -58,7 +62,13 @@ import BScroll from 'better-scroll'
 import SupportIco from '@/components/support-ico/Support-ico'
 import ShopCart from '@/components/shop-cart/Shop-cart'
 import CartControl from '@/components/cart-control/Cart-control'
+
 export default {
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data() {
     return {
       goods: [],
@@ -88,7 +98,7 @@ export default {
       for (let good of this.goods) {
         if (good.foods) {
           for (let food of good.foods) {
-            if (food.conut) {
+            if (food.count) {
               foods.push(food)
             }
           }
@@ -101,7 +111,7 @@ export default {
     getGoods().then(res => {
       console.log(res);
       this.goods = res
-      this.$nextTick(() => {  // 只会在dom渲染完成之后执行
+      this.$nextTick(() => { // 只会在dom渲染完成之后执行
         this._initScroll()
         this._calculateHeight()
       })
@@ -123,7 +133,7 @@ export default {
         probeType: 3
       })
       this.foodsScroll.on('scroll', pos => {
-        console.log(pos);
+        console.log(pos)
         this.scrollY = Math.abs(Math.round(pos.y))
       })
     },
@@ -136,7 +146,7 @@ export default {
         height += item.clientHeight
         this.listHeight.push(height)
       }
-      console.log(this.listHeight);
+      console.log(this.listHeight)
     }
   }
 }
@@ -160,10 +170,10 @@ export default {
       width 60px
       height 54px
       padding 0 10px
-      text-align: center; //文本内容居中
-      justify-content: center; //水平居中
+      text-align center
+      justify-content center
       line-height 14px
-      align-items center //垂直居中
+      align-items center
       font-size $fontsize-small
       &.current
         background #fff
@@ -171,25 +181,25 @@ export default {
   .foods-wrapper
     flex 1
     .title
-      padding-left: 14px;
-      height: 26px;
-      line-height: 26px;
-      border-left: 2px solid #d9dde1;
-      font-size: $fontsize-small;
+      padding-left 14px
+      height 26px
+      line-height 26px
+      border-left 2px solid #d9dde1;
+      font-size $fontsize-small
       color rgb(147, 153, 159)
-      background: $color-background-ssss;
+      background $color-background-ssss
     .food-item
-      position: relative;
       display flex
-      margin: 18px;
-      padding-bottom: 18px;
+      margin 18px
+      padding-bottom 18px
+      position: relative;
       &:last-child
-        margin-bottom: 0;
+        margin-bottom 0
       .icon
-        flex: 0 0 57px;
-        margin-right: 10px;
+        flex 0 0 57px
+        margin-right 10px
         img
-          width: 100%;
+          width 100%
       .content 
         flex 1
         .name 
@@ -220,8 +230,7 @@ export default {
             font-size 10px
             color rgb(147, 153, 159)
         .cartcontrol-wrapper
-          position: absolute;
+          position absolute
           right: 0;
           bottom: 12px;
-
 </style>

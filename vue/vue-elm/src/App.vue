@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header :seller="seller"></Header>
+    <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-wrapper">
         <router-link to="/">商品</router-link>
@@ -12,17 +12,18 @@
         <router-link to="/seller">商家</router-link>
       </div>
     </div>
+
     <div class="page">
-      <router-view></router-view>
+      <router-view :seller="seller"></router-view>
     </div>
   </div>
-  
 </template>
 
 <script>
-import Header from '@/components/header/Header'
+import header from '@/components/header/Header'
 import { getSeller } from '@/api'
 import qs from 'query-string'
+
 export default {
   data () {
     return {
@@ -31,8 +32,8 @@ export default {
       }
     }
   },
-  components: {
-    Header
+  components:  {
+    'v-header': header
   },
   created() {
     getSeller({
@@ -48,19 +49,19 @@ export default {
 <style lang="stylus">
 @import './common/stylus/variable.styl';
 .tab
-  width: 100%;
+  width 100%
   display flex
-  height: 36px;
-  line-height: 36px;
+  height 36px
+  line-height 36px
   &-wrapper
     flex 1
-    text-align: center;
+    text-align center
     a
-      width: 100%;
-      display: inline-block;
-      color: #666;
-      text-decoration: none;
+      width 100%
+      display inline-block
+      color #666
+      text-decoration none
     .router-link-exact-active
-      color: $color-red;
-      border-bottom: 2px solid $color-red;
+      color $color-red
+      border-bottom 2px solid $color-red
 </style>

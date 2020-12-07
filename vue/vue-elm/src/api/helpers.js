@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const baseUrl = ''
+const  baseUrl = '';
 
-export function get (url) {
+export function get(url) {
   return function(params = {}) {
     return axios.get(baseUrl + url, {
       params
