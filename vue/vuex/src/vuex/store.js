@@ -12,6 +12,7 @@ const mutations = {
     setTimeout(() => {
       state.count += num
     }, 3000)
+    console.log('我后出现');
   },
   reduce(abc) {
     abc.count--
@@ -33,9 +34,24 @@ const actions = {
   }
 }
 
-export default new Vuex.Store({
+const moduleA = {
   state,
   mutations,
   getters,
   actions
+}
+
+const state2 = {
+  name: "wn"
+}
+
+const moduleB = {
+  state2
+}
+
+export default new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
 })

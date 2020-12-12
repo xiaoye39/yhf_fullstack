@@ -1,6 +1,6 @@
 <template>
   <div class="count">
-    <h3>{{ $store.state.count }}</h3>
+    <h3>{{ $store.state.a.count }}</h3>
     <h2>{{ count }}</h2>
     <h2>{{ newCount }}</h2>
     <p>
