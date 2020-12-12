@@ -9,14 +9,33 @@ const state = {
 
 const mutations = {
   add(state, num) {
-    state.count += num
+    setTimeout(() => {
+      state.count += num
+    }, 3000)
   },
   reduce(abc) {
     abc.count--
   }
 }
 
+const getters = {
+  newCount: (state) => {
+    return state.count ** 2
+  }
+}
+
+const actions = {
+  addAction(context, n) {
+    setTimeout(() => {
+      context.commit('add', n)
+    }, 3000)
+    console.log('我先出现');
+  }
+}
+
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  getters,
+  actions
 })

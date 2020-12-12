@@ -1,16 +1,17 @@
 <template>
   <div class="count">
     <h3>{{ $store.state.count }}</h3>
-    <h2>{{count}}</h2>
+    <h2>{{ count }}</h2>
+    <h2>{{ newCount }}</h2>
     <p>
-      <button @click="add(10)">add</button>
+      <button @click="add(5)">add</button>
       <button @click="$store.commit('reduce')">reduce</button>
     </p>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 
 export default {
   // computed: {
@@ -20,17 +21,21 @@ export default {
   // },
   data() {
     return {
-      msg: ''
-    }
+      msg: "",
+    };
   },
   // computed: mapState({
   //   newCount: state => state.count * 3
   // }),
-  computed: mapState(['count']),
+  computed: {
+    ...mapState(["count"]),
+    ...mapGetters(["newCount"]),
+  },
   methods: {
-    test () {},
-    ...mapMutations(['add', 'reduce'])
-  }
+    test() {},
+    ...mapMutations(["add" ,"reduce"]),
+    ...mapActions(["addAction"]),
+  },
 };
 </script>
 
