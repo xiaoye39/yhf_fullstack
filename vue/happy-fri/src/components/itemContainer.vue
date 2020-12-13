@@ -13,9 +13,12 @@
     <div v-else>
       <div class="item_back item_container_style">
         <div class="item_list_container">
-          <header class="item_title">酒神有几个对象？</header>
+          <header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
           <ul>
-            
+            <li class="item_list">
+              <span class="option_style">A</span>
+              <span class="option_detail">3个</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -24,14 +27,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: ['fatherComponent'],
   data() {
     return { 
       isHome: false,
-      itemNum: 1
     }
   },
+  computed: mapState(['itemDetail', 'itemNum']),
   created() {
     if (this.fatherComponent === 'home') {
       // 出现首页的dom
@@ -111,7 +115,7 @@ export default {
     }
 	.item_title{
 		font-size: 0.65rem;
-		color: #00e;
+		color: #fff;
 		line-height: 0.7rem;
 	}
 	.item_list{
