@@ -15,9 +15,9 @@
         <div class="item_list_container">
           <header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
           <ul>
-            <li class="item_list">
+            <li class="item_list" v-for="(item, index) in itemDetail[itemNum-1].topic_answer" :key="index">
               <span class="option_style">A</span>
-              <span class="option_detail">3个</span>
+              <span class="option_detail">{{item.answer_name}}</span>
             </li>
           </ul>
         </div>
