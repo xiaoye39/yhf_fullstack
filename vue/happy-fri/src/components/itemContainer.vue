@@ -13,8 +13,12 @@
 
 <script>
 export default {
-  props: ['fatherComponent']
-  
+  props: ['fatherComponent'],
+  created() {
+    if (this.fatherComponent === 'home') {
+      document.body.style.backgroundImage = 'url(./)'
+    }
+  }
 }
 </script>
 
