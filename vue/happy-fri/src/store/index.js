@@ -4,9 +4,10 @@ import mutations from './mutations'
 import actions from './actions'
 
 Vue.use(Vuex)
+
 const state = {
   level: '第一周',
-  itemNum: 1,
+  itemNum: 1, // 第几周
   allTime: 0,
   timer: '',
   itemDetail: [{

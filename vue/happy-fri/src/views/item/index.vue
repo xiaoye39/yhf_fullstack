@@ -5,14 +5,16 @@
 </template>
 
 <script>
-import itemContainer from '@/components/itemContainer'
+import itemContainer from "@/components/itemContainer";
 export default {
   components: {
-    itemContainer
-  }
-}
+    itemContainer,
+  },
+};
 </script>
 
-<style>
-
+<style lang="less" scoped>
+body {
+  background: url(../../images/1-1.jpg) no-repeat;
+}
 </style>
