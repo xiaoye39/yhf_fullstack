@@ -2,7 +2,7 @@
   <section>
     <header class="top_tips">
       <span class="num_tip" v-if="isHome">第一周</span>
-      <span class="num_tip" v-else></span>
+      <span class="num_tip" v-else>题目{{itemNum}}</span>
     </header>
     <!-- 首页 -->
     <div v-if="isHome">
@@ -10,7 +10,16 @@
       <router-link class="start buttton_style" to="/item"></router-link>
     </div>
     <!-- 答题页面 -->
-
+    <div v-else>
+      <div class="item_back item_container_style">
+        <div class="item_list_container">
+          <header class="item_title">酒神有几个对象？</header>
+          <ul>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -19,7 +28,8 @@ export default {
   props: ['fatherComponent'],
   data() {
     return { 
-      isHome: false
+      isHome: false,
+      itemNum: 1
     }
   },
   created() {
