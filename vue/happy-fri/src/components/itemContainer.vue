@@ -1,22 +1,31 @@
 <template>
   <section>
     <header class="top_tips">
-      <span class="num_tip">第一周</span>
+      <span class="num_tip" v-if="isHome">第一周</span>
+      <span class="num_tip" v-else></span>
     </header>
-
-    <div>
+    <!-- 首页 -->
+    <div v-if="isHome">
       <div class="home_logo item_container_style"></div>
       <router-link class="start buttton_style" to="/item"></router-link>
     </div>
+    <!-- 答题页面 -->
+
   </section>
 </template>
 
 <script>
 export default {
   props: ['fatherComponent'],
+  data() {
+    return { 
+      isHome: false
+    }
+  },
   created() {
     if (this.fatherComponent === 'home') {
-      document.body.style.backgroundImage = 'url(./)'
+      // 出现首页的dom
+      this.isHome = true
     }
   }
 }
