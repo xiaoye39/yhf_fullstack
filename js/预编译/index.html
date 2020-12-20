@@ -68,15 +68,41 @@
     </script> -->
 
     <script>
-        global = 100
-        function fn() {
-            console.log(global);
-            global = 200
-            console.log(global);
-            var global = 300
+        // global = 100
+        // function fn() {
+        //     console.log(global);
+        //     global = 200
+        //     console.log(global);
+        //     var global = 300
+        // }
+        // fn()
+        // var global
+
+        // 案列：
+        f1 ()
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9
+            console.log(a);
+            console.log(b);
+            console.log(c);
         }
-        fn()
-        var global
+        // 以上代码如下执行：
+        /*function f1() {
+            var a ;
+            a = b = c = 9
+            // 相当于 var a = 9; b = 9; c = 9; --> b 和 c 直接赋值 没有var声明 当 全局变量看
+            // 集体声明 var a = 9, b = 9, c = 9;
+            console.log(a);  // 9 
+            console.log(b);  // 9
+            console.log(c);  // 9
+        }
+        f1 ()
+        console.log(c);  // 9
+        console.log(b);  // 9
+        console.log(a);  // 报错 */
     </script>
 </body>
 </html>
