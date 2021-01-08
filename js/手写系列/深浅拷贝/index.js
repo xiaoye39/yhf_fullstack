@@ -1,3 +1,3 @@
-let a = 1
-let b = 1
-a = 2
+let arr = ['old', 1, true, null, undefined]
+let new_arr = arr.concat()
+console.log(new_arr);
