@@ -26,9 +26,9 @@ function unique(array, isSorted, iteratee) {
 
   for (let i = 0, len = array.length; i < len; i++) {
     let value = array[i]
-    let computed = iteratee ? iteratee(value, i, array) : value
+    let computed = iteratee ? iteratee(value) : value
     if (isSorted) {
-      if (!i || seen !== value) {
+      if (!i || seen !== computed) {
         res.push(value)
       }
       seen = computed
