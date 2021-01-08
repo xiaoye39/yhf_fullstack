@@ -4,7 +4,17 @@
    let res = []
    for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < res.length; j++) {
-      
+      if (arr[i] === res[j]) {
+        break;
+      }
+
+      // 如果arr[i]是唯一的，那么执行循环
+      if (j === res.length) {
+        res.push(arr[i])
+      }
+
     }
    }
  }
+
+ arr(array)
