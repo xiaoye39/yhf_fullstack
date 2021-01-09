@@ -38,3 +38,7 @@ console.log(array[0]);
 
 
 // eval
+let max = eval("Math.max(" + arr + ")")
+
+// apply
+Math.max.apply(null, array)
