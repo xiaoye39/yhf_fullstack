@@ -28,7 +28,7 @@ let arr = [1, [2, [3, 4]]]
 
 let arr = [1, [2, [3, 4]]]  // 1, [2, [3, 4]]
 function faltten(arr) {
-  while(arr.some(item => Array.isArray(item))) {
+  while (arr.some(item => Array.isArray(item))) {
     arr = [].concat(...arr)
   }
   return arr
