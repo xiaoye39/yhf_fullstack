@@ -12,3 +12,9 @@ let shallowCopy = function (obj) {
 }
 
 Object.prototype.abc = 123
+
+
+// let test = ['a', 'b', 'c']
+// for (let key in test) {
+//   console.log(test.hasOwnProperty(key));
+// }
