@@ -11,6 +11,6 @@ function findLastIndex(array, predicate, context) {
   return -1;
 }
 
-console.log(findLastIndex([1, 2, 3, 4], function(item, index, array) {
+console.log(findLastIndex([1, 2, 3, 4], function (item, index, array) {
   if (item == 1) return true
 }));  // 0
