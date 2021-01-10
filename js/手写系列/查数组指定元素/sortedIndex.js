@@ -8,19 +8,19 @@ function cb(func, context) {
 
 function sortedIndex(array, obj, iteratee, context) {
   iteratee = cb(iteratee, context)
-  let low = 0, high = array.length;
 
-  while (low < high) {
+  let low = 0, high = array.length - 1;
+
+  while (low <= high) {
     let mid = Math.floor((low + high) / 2)
     if (iteratee(array[mid]) < iteratee(obj)) low = mid + 1
     else if (iteratee(array[mid]) === iteratee(obj)) {
       return mid
-    } else {
-      high = mid - 1
     }
+    else high = mid - 1
   }
 
-  return high
+  return low
 }
 
 
@@ -29,8 +29,8 @@ function sortedIndex(array, obj, iteratee, context) {
 
 
 
-var stooges = [{ name: 'moe', age: 40 }, { name: 'curly', age: 60 }]
-let result = sortedIndex(stooges, { name: 'larry', age: 50 }, function (stooge) {
+var stooges = [{ name: 'moe', age: 40 }, { name: 'larry', age: 50 }, { name: 'curly', age: 60 }]
+let result = sortedIndex(stooges, { name: 'larry', age: 60 }, function (stooge) {
   return stooge.age
 });  // 1
 console.log(result);  //1
