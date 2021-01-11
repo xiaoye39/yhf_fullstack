@@ -118,7 +118,7 @@ export default {
         })
         // token (data) 保存在本地
         setLocal('token', data)
-
+        
       } else {  // 注册
         await register({
           "loginName": values.username1,
