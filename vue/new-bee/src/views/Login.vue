@@ -8,7 +8,7 @@
       <van-form @submit="onSubmit">
         <van-field
           v-model="username"
-          name="用户名"
+          name="username"
           label="用户名"
           placeholder="用户名"
           :rules="[{ required: true, message: '请填写用户名' }]"
@@ -16,7 +16,7 @@
         <van-field
           v-model="password"
           type="password"
-          name="密码"
+          name="password"
           label="密码"
           placeholder="密码"
           :rules="[{ required: true, message: '请填写密码' }]"
@@ -42,7 +42,7 @@
       <van-form @submit="onSubmit">
         <van-field
           v-model="username1"
-          name="用户名"
+          name="username1"
           label="用户名"
           placeholder="用户名"
           :rules="[{ required: true, message: '请填写用户名' }]"
@@ -50,7 +50,7 @@
         <van-field
           v-model="password1"
           type="password"
-          name="密码"
+          name="password1"
           label="密码"
           placeholder="密码"
           :rules="[{ required: true, message: '请填写密码' }]"
@@ -78,7 +78,9 @@ import sHeader from '@/components/SimpleHeader'
 import { reactive, toRefs, ref } from 'vue'
 import vueImgVerify from '@/components/VueImgVerify'
 import { Toast } from 'vant'
-import { register } from '@/service/user'
+import { register, login } from '@/service/user'
+import md5 from 'js-md5'
+import setLocal from '@/common/js/utils'
 export default {
   components: {
     sHeader,
@@ -110,13 +112,21 @@ export default {
         return
       }
       if (state.type == 'login') {  // 登录
-        
+        const { data } = await login({
+          'loginName': values.username,
+          'passwordMd5': md5(values.password)
+        })
+        // token (data) 保存在本地
+        setLocal('token', data)
+
       } else {  // 注册
         await register({
           "loginName": values.username1,
           "password": values.password1
         })
         Toast.success('注册成功')
+        state.type = 'login'
+        state.verify = ''
       }
     }
 
