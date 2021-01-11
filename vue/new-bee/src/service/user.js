@@ -5,5 +5,5 @@ export function register(params) {
 }
 
 export function login(params) {
-  return axios.post('./user/login', params)
+  return axios.post('/user/login', params)
 }

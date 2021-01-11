@@ -80,14 +80,15 @@ import vueImgVerify from '@/components/VueImgVerify'
 import { Toast } from 'vant'
 import { register, login } from '@/service/user'
 import md5 from 'js-md5'
-import setLocal from '@/common/js/utils'
+import { setLocal } from '@/common/js/utils'
+import { useRouter } from 'vue-router'
 export default {
   components: {
     sHeader,
     vueImgVerify
   },
   setup() {
-    const router = useRouter()     
+    const router = useRouter()
     const verifyRef = ref(null)
     const state = reactive({
       username: '',
@@ -105,22 +106,23 @@ export default {
       state.verify = ''
     }
     // 登录注册
-    const onSubmit = async() => {
+    const onSubmit = async(values) => {
       console.log(verifyRef.value.imgCode); // 通过ref.value可以取到组件内setup函数返回的值
       state.imgCode = verifyRef.value.imgCode || ''
-      if (state.verify.toLowerCase() !== state.imgCode.toLowerCase) {
+      if (state.verify.toLowerCase() !== state.imgCode.toLowerCase()) {
         Toast.fail('验证码有误');
         return
       }
-      if (state.type == 'login') {  // 登录
+      if (state.type == 'login') { // 登录
         const { data } = await login({
           'loginName': values.username,
           'passwordMd5': md5(values.password)
         })
-        // token (data) 保存在本地
+        // token（data）保存在本地
         setLocal('token', data)
-
-      } else {  // 注册
+        router.push('/home')
+      } else { // 注册
+        console.log(values);
         await register({
           "loginName": values.username1,
           "password": values.password1

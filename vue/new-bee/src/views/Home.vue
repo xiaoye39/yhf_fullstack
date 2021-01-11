@@ -15,9 +15,7 @@
       >
     </div>
 
-    <router-link class="login" tag="span" to="./login" v-if="!isLogin"
-      >登录</router-link
-    >
+    <router-link class="login" tag="span" to="./login" v-if="!isLogin">登录</router-link>
     <router-link class="login" tag="span" to="./user" v-else>
       <van-icon name="manager-o" />
     </router-link>
@@ -51,6 +49,7 @@ import { onMounted, reactive, toRefs, nextTick } from "vue";
 import { getHome } from "@/service/home";
 import { Toast } from "vant";
 import goodsList from "@/components/GoodsList";
+import { getLocal } from  '@/common/js/utils'
 export default {
   name: "home",
   components: {
@@ -118,6 +117,7 @@ export default {
       newGoodses: [], // 新品上线
       hotGoodses: [], // 热门商品
       recommendGoodses: [], // 最新推荐
+      isLogin: false
     });
 
     onMounted(async () => {
