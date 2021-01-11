@@ -121,6 +121,10 @@ export default {
     });
 
     onMounted(async () => {
+      const token = getLocal('token')
+      if (token) {
+        state.isLogin = true
+      }
       Toast.loading({
         message: "加载中...",
         forbidClick: true,
