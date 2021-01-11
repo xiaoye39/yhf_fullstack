@@ -1,11 +1,20 @@
 {
-  "name": "verify-code",
+  "name": "wn-verify-code",
   "version": "0.1.0",
-  "private": true,
+  "main": "lib/verify-code.umd.main.js",
+  "author": "蜗牛",
+  "description": "test-test",
+  "keywords": [
+    "vue",
+    "verify-code",
+    "wn-verify-code"
+  ],
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name verify-code --dest lib ./src/main.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
