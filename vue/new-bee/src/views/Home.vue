@@ -1,5 +1,6 @@
 <template>
-  <header class="home-header wrap" :class="{ active: headerScroll }">
+  <div>
+    <header class="home-header wrap" :class="{ active: headerScroll }">
     <router-link to="/category">
       <i class="iconfont icon-entypomenu"></i>
     </router-link>
@@ -40,6 +41,7 @@
     :title="'最新推荐'"
     :goods="recommendGoodses"
   ></goods-list>
+  </div>
 </template>
 
 <script>
