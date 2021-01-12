@@ -3,12 +3,13 @@
     <s-header :name="'购物车'" :back="false"></s-header>
     <!-- 列表 -->
     <div class="cart-body">
-      <van-checkbox-group v-model="result">
-        <van-swipe-cell>
+      <van-checkbox-group v-model="result" @change="groupChange">
+
+        <van-swipe-cell v-for="(item, index) in list" :key="index">
           <div class="good-item">
-            <van-checkbox name="a"></van-checkbox>
+            <van-checkbox name="item.cartItemId"></van-checkbox>
             <div class="good-img">
-              <img src="https://img.yzcdn.cn/vant/cat.jpeg" alt="" />
+              <img src="$filters.profix(item.goodsCoverImg)" alt="" />
             </div>
             <div class="good-desc">
               <div class="good-title">
@@ -16,7 +17,7 @@
                 <span>x1</span>
               </div>
               <div class="good-btn">
-                <div class="price">￥7990</div>
+                <div class="price">￥{{item.sellingPrice}}</div>
                 <van-stepper integer min="1" max="5" v-model="value" />
               </div>
             </div>
@@ -37,11 +38,11 @@
     <van-submit-bar
       v-if="true"
       class="submit-all"
-      :price="3050"
+      :price="total * 100"
       button-text="结算"
       @submit="onSubmit"
     >
-      <van-checkbox v-model="checked">全选</van-checkbox>
+      <van-checkbox @click="allCheck" v-model="checkAll">全选</van-checkbox>
     </van-submit-bar>
     <div class="empty" v-if="false">
       <img
@@ -61,7 +62,7 @@
 <script>
 import sHeader from "@/components/SimpleHeader";
 import navBar from "@/components/NavBar";
-import { onMounted, reactive, toRefs } from "vue";
+import { computed, onMounted, reactive, toRefs } from "vue";
 import { Toast } from 'vant';
 import { getCart } from '@/service/cart';
 export default {
@@ -85,7 +86,31 @@ export default {
       const { data } = await getCart({
         pageNumber: 1
       })
+      console.log(data);
+      state.list = data
+      state.result = data.map(item.cartItemId)
     };
+
+    // 全选
+    const allCheck = () => {
+      if (!state.checkAll) {
+        state.result = state.list.map(item.cartItemId)
+      } else {
+
+      }
+    }
+
+    // 总价格
+    const total = computed(() => {
+      let sum = 0
+      let _list = state.list.filter(item => state.result.includes(item.cartItemId))
+      _list.forEach(item => {
+        sum += item.goodsCount * item.selling
+      })
+    })
+    
+    // 单选
+    const 
     return {
       ...toRefs(state),
     };
