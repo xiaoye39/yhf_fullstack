@@ -2,7 +2,7 @@
   <div class="good">
     <header class="good-header">{{myTitle}}</header>
     <div class="good-box">
-      <div class="good-item" v-for="item in goods" :key="item.goodsId">
+      <div class="good-item" v-for="item in goods" :key="item.goodsId" @click="goToDetail(item)">
         <img :src="$filters.prefix(item.goodsCoverImg)" alt="">
         <div class="good-desc">
           <div class="title">{{item.goodsName}}</div>
