@@ -61,16 +61,31 @@
 <script>
 import sHeader from "@/components/SimpleHeader";
 import navBar from "@/components/NavBar";
-import { reactive, toRefs } from "vue";
+import { onMounted, reactive, toRefs } from "vue";
+import { Toast } from 'vant';
+import { getCart } from '@/service/cart';
 export default {
   components: {
     sHeader,
-    navBar
+    navBar,
   },
   setup() {
     const state = reactive({
       result: [],
+      list: []
     });
+    onMounted(() => {
+      init();
+    });
+    const init = async () => {
+      Toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+      });
+      const { data } = await getCart({
+        pageNumber: 1
+      })
+    };
     return {
       ...toRefs(state),
     };
