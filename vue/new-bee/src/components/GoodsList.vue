@@ -15,6 +15,7 @@
 
 <script>
 import { ref, reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
 export default {
   props: {
     title: {
@@ -33,6 +34,8 @@ export default {
     const goosList = reactive({
       goods: props.goods
     })
+
+    const goToDetail
     // console.log(props);
     return {
       myTitle,
