@@ -1,14 +1,14 @@
 <template>
   <div class="cart-box">
     <s-header :name="'购物车'" :back="false"></s-header>
+    <!-- 列表 -->
     <div class="cart-body">
       <van-checkbox-group v-model="result">
-
         <van-swipe-cell>
           <div class="good-item">
             <van-checkbox name="a"></van-checkbox>
             <div class="good-img">
-              <img src="https://img.yzcdn.cn/vant/cat.jpeg" alt="">
+              <img src="https://img.yzcdn.cn/vant/cat.jpeg" alt="" />
             </div>
             <div class="good-desc">
               <div class="good-title">
@@ -17,14 +17,14 @@
               </div>
               <div class="good-btn">
                 <div class="price">￥7990</div>
-                <van-stepper v-model="value" />
+                <van-stepper integer min="1" max="5" v-model="value" />
               </div>
             </div>
           </div>
           <template #right>
             <van-button
               square
-              text="删除"
+              icon="delete"
               type="danger"
               class="delete-button"
             />
@@ -33,15 +33,39 @@
         <!-- <van-checkbox name="b">复选框 b</van-checkbox> -->
       </van-checkbox-group>
     </div>
+    <!-- 合计 -->
+    <van-submit-bar
+      v-if="true"
+      class="submit-all"
+      :price="3050"
+      button-text="结算"
+      @submit="onSubmit"
+    >
+      <van-checkbox v-model="checked">全选</van-checkbox>
+    </van-submit-bar>
+    <div class="empty" v-if="false">
+      <img
+        class="empty-cart"
+        src="//s.yezgea02.com/1604028375097/empty-car.png"
+        alt="空购物车"
+      />
+      <div class="title">购物车空空如也</div>
+      <van-button round color="#1baeae" type="primary" @click="goTo" block
+        >前往选购</van-button
+      >
+    </div>
+    <navBar />
   </div>
 </template>
 
 <script>
 import sHeader from "@/components/SimpleHeader";
+import navBar from "@/components/NavBar";
 import { reactive, toRefs } from "vue";
 export default {
   components: {
     sHeader,
+    navBar
   },
   setup() {
     const state = reactive({
