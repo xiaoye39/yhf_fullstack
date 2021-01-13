@@ -39,6 +39,11 @@ const routes = [
     name: 'address',
     component: () => import('@/views/Address.vue')
   },
+  {
+    path: '/address-edit',
+    name: 'address-edit',
+    component: () => import('@/views/AddressEdit.vue')
+  },
 ]
 
 const router = createRouter({

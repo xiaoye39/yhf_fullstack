@@ -26,36 +26,43 @@
 <script>
 import sHeader from '@/components/SimpleHeader'
 import { onMounted, reactive, toRefs } from 'vue'
+import { getAddressList } from '@/service/address'
+import { useRouter, useRoute } from 'vue-router'
 export default {
   components: {
     sHeader
   },
   setup() {
+    const router = new useRouter()
+    const route = new useRoute()
     const state = reactive({
-      list: [
-      {
-        id: '1',
-        name: '张三',
-        tel: '13000000000',
-        address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室',
-        isDefault: true,
-      },
-      {
-        id: '2',
-        name: '李四',
-        tel: '1310000000',
-        address: '浙江省杭州市拱墅区莫干山路 50 号',
-      },
-    ]
+      list: [],
+      from: ''
     })
 
-    onMounted(() => {
+    onMounted( async () => {
       // 请求所有的地址列表
-      
+      const { data } = await getAddressList()
+      // console.log(data);
+      if (!data) {
+        state.list = []
+        return
+      }
+      console.log(data);
+      // 
+      // 
+      //
     })
+    // 新增地址
+    const onAdd = () => {
+      router.push({
+        path: '/address-edit', query: { type: 'add', from: state.from}
+      })
+    }
 
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      onAdd
     }
   }
 }

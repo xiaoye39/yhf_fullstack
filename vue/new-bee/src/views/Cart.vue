@@ -116,7 +116,7 @@ export default {
     const total = computed(() => {
       let sum = 0;
       let _list = state.list.filter((item) =>
-        state.result.includes(item.cartItemId)
+        state.result.includes(item.cartItemId) // 找list里面有result的cartItemId的商品
       );
       _list.forEach((item) => {
         sum += item.goodsCount * item.sellingPrice;
@@ -125,7 +125,7 @@ export default {
     });
 
     // 单选
-    const groupChange = (result) => {
+    const groupChange = (result) => { // 打印出操作后的有几条数据
       // console.log(result);
       if (result.length === state.list.length) {
         state.checkAll = true;

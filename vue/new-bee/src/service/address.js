@@ -7,3 +7,6 @@ export function getAddressDetail(id) {
 export function getDefaultAddress() {
   return axios.get(`/address/default`)
 }
+export function getAddressList() {
+  return axios.get(`/address`, { pageNum: 1, pageSize: 1000 })
+}

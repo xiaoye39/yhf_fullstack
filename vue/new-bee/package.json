@@ -26,5 +26,10 @@
     "@vue/compiler-sfc": "^3.0.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
