@@ -26,43 +26,60 @@
 <script>
 import sHeader from '@/components/SimpleHeader'
 import { onMounted, reactive, toRefs } from 'vue'
-import { getAddressList } from '@/service/address'
-import { useRouter, useRoute } from 'vue-router'
+import { getAddressList } from '@/service/address.js'
+import { useRouter, useRoute } from 'vue-router';
 export default {
   components: {
     sHeader
   },
   setup() {
-    const router = new useRouter()
-    const route = new useRoute()
+    const router = useRouter()
+    const route = useRoute()
     const state = reactive({
       list: [],
-      from: ''
+      from: route.query.from
     })
 
     onMounted( async () => {
       // 请求所有的地址列表
       const { data } = await getAddressList()
-      // console.log(data);
       if (!data) {
         state.list = []
         return
       }
       console.log(data);
-      // 
-      // 
-      //
+      state.list = data.map(item => {
+        return {
+          id: item.addressId,
+          name: item.userName,
+          tel: item.userPhone,
+          address: `${item.provinceName} ${item.cityName} ${item.regionName} ${item.detailAddress}`,
+          isDefault: !!item.defaultFlag
+        }
+      })
     })
+
     // 新增地址
     const onAdd = () => {
-      router.push({
-        path: '/address-edit', query: { type: 'add', from: state.from}
-      })
+      router.push({ path: '/address-edit', query: { type: 'add', from: state.from }})
+    }
+
+    // 修改地址
+    const onEdit = (item) => {
+      router.push({ path: '/address-edit', query: { type: 'edit', addressId: item.id, from: state.from }})
+    }
+
+    // 选中地址
+    const select = (item) => {
+      console.log(item);
+      router.push({ path: '/create-order', query: { addressId: item.id, from: state.from }})
     }
 
     return {
       ...toRefs(state),
-      onAdd
+      onAdd,
+      select,
+      onEdit
     }
   }
 }
