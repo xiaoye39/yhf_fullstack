@@ -5,7 +5,7 @@ fs.readFile('./2.js', 'utf-8', (err, con) => {
 })
 
 let arr = [1, 2, 3]
-arr.forEach((item) => {
+arr.forEach((item, i) => {
   console.log(item);
 })
 // callback promise async + await
@@ -23,3 +23,4 @@ function readFile(cb) {
 readFile((c) => {
   console.log(c);   // 2s 'hello world'
 })
+
