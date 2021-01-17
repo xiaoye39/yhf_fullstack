@@ -8,3 +8,5 @@ var name = 'Word!'
     console.log('Hello' + name);
   }
 })()
+
+// 变量提升js将声明移动至作用域的顶部
