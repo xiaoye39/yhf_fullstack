@@ -2,6 +2,10 @@
 
 let arr = [3, 2, 1]
 let pow = function (a, b) {
+  console.log(a, b);
   return a ** b
 }
 arr.reduce(pow)
+
+
+// [9, console.error();]
