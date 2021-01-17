@@ -9,4 +9,15 @@ var name = 'Word!'
   }
 })()
 
-// 变量提升js将声明移动至作用域的顶部
+// 变量提升是js将声明移动至作用域的顶部
+
+// var name  = 'Word!'
+// (function() {
+//   var name
+//   if (typeof name === 'undefined') {
+//     name = 'Jack'
+//     console.log('Goodbye' + name);
+//   } else {
+//     console.log('Hello' + name);
+//   }
+// })()
