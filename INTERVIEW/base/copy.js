@@ -59,7 +59,7 @@
 let test = {
     age: undefined,
     sex: Symbol('man'),
-    jobs: function() {},
+    jobs: function () { },
     name: 'wn'
 }
 let o = JSON.parse(JSON.stringify(test))
