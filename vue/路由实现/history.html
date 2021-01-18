@@ -27,7 +27,7 @@
     function onload() {
       routeView.innerHTML = location.pathname
       let linkList = document.querySelectorAll('a[href]')
-      linkList.forEach(el => el.addEventListener('click', function(e) {
+      linkList.forEach(el => el.addEventListener('click', function (e) {
         e.preventDefault()
         history.pushState(null, '', el.getAttribute('href'))
         routeView.innerHTML = location.pathname
