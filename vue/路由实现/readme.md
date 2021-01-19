@@ -14,4 +14,5 @@ pushState 和 replaceState
 
 popstate
 
+
 # 基于vue实现vue-router
