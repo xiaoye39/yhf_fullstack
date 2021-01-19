@@ -1,16 +1,22 @@
 let Vue = null
 class HistoryRoute {
-  constructor () {
+  constructor() {
     this.current = null
   }
 }
 class VueRouter {
-  constructor (options) {
+  constructor(options) {
     this.mode = options.mode || 'hash'
     this.routes = options.routes || []
     this.routesMap = this.createMap(this.routes)
 
     this.history = new HistoryRoute()
+  }
+  // 初始化
+  init() {
+    if (this.mode === 'hash') {
+
+    }
   }
   createMap(routes) {
     return routes.reduce((pre, current) => {
@@ -19,8 +25,8 @@ class VueRouter {
     }, {})
   }
 }
-VueRouter.install = function() {
-  Vue = v 
+VueRouter.install = function () {
+  Vue = v
   Vue.mixin({
     beforeCreate() {
       if (this.$options && this.$options.router) { // 如果是根组件
@@ -30,7 +36,7 @@ VueRouter.install = function() {
         this._root = this.$parent && this.$parent._root
       }
       Object.defineProperty(this, '$router', {
-        get () {
+        get() {
           return this._root._router
         }
       })
@@ -44,7 +50,7 @@ VueRouter.install = function() {
   Vue.component('router-view', {
     render(h) {
       return h('h1', {}, '首页视图')
-    }  
+    }
   })
 }
 
