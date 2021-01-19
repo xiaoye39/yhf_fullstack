@@ -65,8 +65,13 @@ VueRouter.install = function () {
     }
   })
   Vue.component('router-link', {
+    props: {
+      to: String
+    },
     render(h) {
-      return h('a', {}, '首页')
+      let mode = this._slef._root._router.mode
+      let to = mode === 'hash' ? '#' + this.to : this.to
+      return h('a', {attrs: {href: to}}, this.$slots.default)
     }
   })
   Vue.component('router-view', {
