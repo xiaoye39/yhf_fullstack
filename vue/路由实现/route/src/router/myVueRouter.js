@@ -1,6 +1,9 @@
 let Vue = null
 class VueRouter {
-
+  constructor (options) {
+    this.mode = options.mode || 'hash'
+    this.routes = options.routes
+  }
 }
 VueRouter.install = function() {
   Vue = v 
