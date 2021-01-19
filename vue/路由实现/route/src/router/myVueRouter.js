@@ -1,8 +1,19 @@
+let Vue = null
 class VueRouter {
 
 }
 VueRouter.install = function() {
-
+  Vue = v 
+  Vue.component('router-link', {
+    render(h) {
+      return h('a', {}, '首页')
+    }
+  })
+  Vue.component('router-view', {
+    render(h) {
+      return h('h1', {}, '首页视图')
+    }  
+  })
 }
 
 export default VueRouter
