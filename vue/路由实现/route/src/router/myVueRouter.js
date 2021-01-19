@@ -10,12 +10,15 @@ class VueRouter {
     this.routes = options.routes || []
     this.routesMap = this.createMap(this.routes)
 
-    this.history = new HistoryRoute()
+    this.history = new HistoryRoute()  // 装当前路由的状态
   }
   // 初始化
   init() {
     if (this.mode === 'hash') {
-
+      location.hash ? '' : location.hash = '/'
+      window.addEventListener('load', () => {
+        this.history.current = location.hash.slice(1)
+      })
     }
   }
   createMap(routes) {
