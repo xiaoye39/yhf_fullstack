@@ -11,6 +11,7 @@ class VueRouter {
     this.routesMap = this.createMap(this.routes)
 
     this.history = new HistoryRoute()  // 装当前路由的状态
+    this.init()
   }
   // 初始化
   init() {
@@ -18,6 +19,17 @@ class VueRouter {
       location.hash ? '' : location.hash = '/'
       window.addEventListener('load', () => {
         this.history.current = location.hash.slice(1)
+      })
+      window.addEventListener('hashchange', () => {
+        this.history.current = location.hash.slice(1)
+      })
+    } else {
+      location.pathname ? '' : location.pathname = '/'
+      window.addEventListener('load', () => {
+        this.history.current = location.pathname
+      })
+      window.addEventListener('popstate', () => {
+        this.history.current = location.pathname
       })
     }
   }
@@ -35,12 +47,19 @@ VueRouter.install = function () {
       if (this.$options && this.$options.router) { // 如果是根组件
         this._root = this
         this._router = this.$options.router
+
+        Vue.util.defineReactive(this, 'xxx', this._router.history)
       } else {  // 如果是子组件
         this._root = this.$parent && this.$parent._root
       }
       Object.defineProperty(this, '$router', {
         get() {
           return this._root._router
+        }
+      })
+      Object.defineProperty(this, '$route', {
+        get () {
+          return this._root._router.history.current
         }
       })
     }
@@ -52,7 +71,9 @@ VueRouter.install = function () {
   })
   Vue.component('router-view', {
     render(h) {
-      return h('h1', {}, '首页视图')
+      let current = this._slef._root._router.history.current
+      let routeMap = this._slef._root._router.routesMap
+      return h(routeMap[current])
     }
   })
 }
