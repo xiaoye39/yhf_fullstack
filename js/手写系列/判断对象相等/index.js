@@ -40,7 +40,7 @@ let toString = Object.prototype.toString
 function isFunction(obj) {
   return toString.call(obj) === '[object Function]'
 }
-function deepEq(a, b) {
+function deepEq(a, b, aStack, bStack) {
   let className = toString.call(a)
   if (className !== toString.call(b)) return false
 
