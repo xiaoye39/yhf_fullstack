@@ -37,6 +37,9 @@ function eq(a, b) {
 // toString.call(new String('wn'))
 // console.log('wn' + '' === new String('wn') + '');
 let toString = Object.prototype.toString
+function isFunction(obj) {
+  return toString.call(obj) === '[object Function]'
+}
 function deepEq(a, b) {
   let className = toString.call(a)
   if (className !== toString.call(b)) return false
@@ -52,8 +55,19 @@ function deepEq(a, b) {
     case '[object Number]':
       return +a === +b
   }
-}
+ 
+  let areArrays = className === '[object Array]'
+  if (!areArrays) {
+    if (typeof a !== 'object' || typeof b !== 'object') return false
 
+    let aCtor = a.__proto__.constructor, bCtor = b.__proto__.constructor
+    // aCtor 和 bCtor
+    if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor && isFunction(bCtor) && bCtor instanceof bCtor) && ('constructor' in a && 'constructor' in b)) {
+      return false
+    }
+  }
+}
+  
 
 function Person(name) {
   this.name = name
@@ -65,3 +79,9 @@ let person = new Person('Tom')
 let animal = new Animal('Tom')
 
 console.log(eq(person, animal));
+
+
+let attrs = Object.create(null)
+attrs.name = 'Jerry'
+
+console.log(eq(attrs, {name: 'Jerry'}));
