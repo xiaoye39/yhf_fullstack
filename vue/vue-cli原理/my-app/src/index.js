@@ -1,4 +1,6 @@
-document.getElementById('app').innerHTML = 'hello webpack'
-document.getElementById('app').addEventListener('click', function() {
-  console.log(123);
-})
+let str = 'babel'
+let func = s => {
+  document.getElementById('app').innerHTML = `hello ${s}`
+}
+
+func(str)
