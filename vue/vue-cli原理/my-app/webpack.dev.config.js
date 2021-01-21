@@ -1,4 +1,5 @@
 const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
@@ -10,14 +11,21 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }, // 使用什么加载器
+        loader: 'babel-loader', // 使用什么加载器
         exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
+  // resolve: {
+  //   alias: {
+  //     "vue": 'vue/dist/vue.js'
+  //   }
+  // }
 }

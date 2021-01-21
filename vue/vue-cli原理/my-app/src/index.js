@@ -1,6 +1,14 @@
-let str = 'babel'
-let func = s => {
-  document.getElementById('app').innerHTML = `hello ${s}`
-}
+import Vue from 'vue'
+import App from './App.vue'
 
-func(str)
+Vue.config.productionTip = false
+
+// new Vue({
+//   el: "#app",
+//   template: '<App/>',
+//   components: { App }
+// })
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app')
