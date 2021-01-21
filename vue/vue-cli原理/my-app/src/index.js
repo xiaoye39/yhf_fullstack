@@ -1,1 +1,1 @@
-document.getElementById('#app').innerHTML = 'hello webpack'
+document.getElementById('app').innerHTML = 'hello webpack'
