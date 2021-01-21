@@ -27,5 +27,11 @@ module.exports = {
   //   alias: {
   //     "vue": 'vue/dist/vue.js'
   //   }
-  // }
+  // },
+  devServer: {
+    contentBase: path.join(__dirname, './dist'),
+    port: '8888',
+    open: true,
+    hot: true
+  }
 }
