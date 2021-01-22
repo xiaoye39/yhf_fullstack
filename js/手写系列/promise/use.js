@@ -1,7 +1,9 @@
 function a() {
-  setTimeout(() => {
-    console.log('aaaa');
-  }, 1000)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('aaaa');
+    }, 1000)
+  })
 }
 
 function b() {
