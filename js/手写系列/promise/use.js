@@ -14,8 +14,11 @@ function b() {
 }
 
 
-a().then(() => {
+a().then((res) => {
+  console.log(res);
   b()
+}).then((res) => {
+  console.log(res);
 })
 
 
