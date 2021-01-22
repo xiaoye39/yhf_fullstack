@@ -2,7 +2,7 @@ function a() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log('aaaa');
-      reject('err')
+      resolve()
     }, 1000)
   })
 }
@@ -14,4 +14,6 @@ function b() {
 }
 
 
-a().catch(b)
+a().then(() => {
+  b()
+})
