@@ -28,8 +28,12 @@ function reslove(value) {
   }
 }
 
-function reject() {
+function reject(value) {
   if (that.state === PENDING) {
     that.state === REJECTED
+    that.value = value
+    that.resolvedCallbacks.map(cb => {
+      cb(that.value)
+    })
   }
 }

@@ -17,3 +17,16 @@ function b() {
 a().then(() => {
   b()
 })
+
+
+
+
+/*
+function abc() {
+
+}
+====>
+let abc = () => {
+  
+}
+*/
