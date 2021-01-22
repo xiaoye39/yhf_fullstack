@@ -10,7 +10,11 @@ function MyPromise(fn) {
   that.resolvedCallbacks = []
   that.rejectedCallbacks = []
 
-  try
+  try {
+    fn(reslove, reject)
+  } catch (error) {
+    reject(error)
+  }
 }
 
 
