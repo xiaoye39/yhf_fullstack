@@ -1,8 +1,8 @@
 function a() {
-  return new Promise((resolve, reject) => {
+  return new Promise((test, reject) => {
     setTimeout(() => {
       console.log('aaaa');
-      resolve()
+      reject()
     }, 1000)
   })
 }
@@ -27,6 +27,6 @@ function abc() {
 }
 ====>
 let abc = () => {
-  
+
 }
 */

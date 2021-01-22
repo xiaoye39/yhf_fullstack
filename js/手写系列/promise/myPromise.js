@@ -37,3 +37,11 @@ function reject(value) {
     })
   }
 }
+
+
+MyPromise.prototype.then = function (onFulfilled, onRejected) {
+  const that = this
+  onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
+  onRejected = typeof onRejected === 'function' ? onRejected : r => { throw r }
+
+}
