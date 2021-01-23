@@ -44,7 +44,7 @@ let target = {
 }
 
 let handler = {
-  ownKeys (target) {
+  ownKeys(target) {
     return Object.ownKeys(target).filter(key => key[0] !== '_')
   }
 }
