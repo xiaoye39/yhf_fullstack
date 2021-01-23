@@ -1,19 +1,20 @@
 let obj = {}
 Object.defineProperty(obj, 'num', {
-  value: 1,
-  writable: false,
+  // value: 1,
+  // writable: false,
   enumerable: true,
   configurable: false,
-  // getter
+  // getter 
   get: undefined,
   // setter
-  set: undefined
+  set: function (val) {
+
+  }
 })
 // obj.num = 1
 // for (let key in obj) {
 //   console.log(key);
 // }
+// delete obj.num
 
-for (let key in obj) {
-  console.log(key);
-}
+console.log(obj);
