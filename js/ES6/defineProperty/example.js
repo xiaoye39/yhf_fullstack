@@ -9,6 +9,7 @@ function Archiver() {
     },
     set: function(newValue) {
       console.log('执行set操作');
+      value = newValue
       archive.push({ val: newValue })
     }
   })
