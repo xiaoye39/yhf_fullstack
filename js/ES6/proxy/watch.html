@@ -12,9 +12,19 @@
   <script>
     (function() {
       let test;
-      function watch() {
-
+      return function watch(target, func) {
+        let proxy = new Proxy(target, {
+          get: function() {
+            return target[prop]
+          },
+          set: function(target, prop, value) {
+            target[prop] = value
+            func(prop, value)
+          }
+        })
+        return proxy
       } 
+      // this.watch = watch
     })()
 
     let button = document.getElementById('button')
@@ -24,7 +34,13 @@
       value: 0
     }
     // 监听obj
-    
+     let newObj = watch(obj, function(key, newValue) {
+        if (key === 'value') container.innerHTML = newValue
+     })
+
+     button.addEventListener('click', function() {
+       newObj.value += 1
+     })
   </script>
 </body>
 </html>
