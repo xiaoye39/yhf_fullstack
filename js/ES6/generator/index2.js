@@ -2,10 +2,15 @@ let fetch = require('node-fetch')
 
 function* get() {
   let rl = yield fetch('https://api.github.com/users/github');
-  let r2 = yield fetch('https://api.github.com/users/github/followers');
-  let r3 = yield fetch('https://api.github.com/users/github/repos');
+  let json1 = yield r1.json()
 
-  console.log([r1.bio, r2[0].login, r3[0].full_name].join('\n'));
+  let r2 = yield fetch('https://api.github.com/users/github/followers');
+  let json2 = yield r2.json()
+
+  let r3 = yield fetch('https://api.github.com/users/github/repos');
+  let json3 = yield r3.json()
+
+  console.log([json1.bio, json2.documentation_url, json3.message].join('\n'));
 }
 
 // let g = gen()
