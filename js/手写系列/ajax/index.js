@@ -17,12 +17,12 @@
 
 // 基于promise 实现 ajax
 function ajax(options) {
-  const url = options.url
+  let url = options.url
   const method = options.method.toLowerCase() || 'get'
   const async = options.async
   const data = options.data
 
-  const xhr = new XMLHttpRequest()
+  let xhr = new XMLHttpRequest()
   if (options.timeout && options.timeout > 0) {
     xhr.timeout = options.timeout
   }
@@ -31,7 +31,7 @@ function ajax(options) {
     xhr.ontimeout = () => reject && reject('请求超时')
     // 监听状态变化回调
     xhr.onreadystatechange = () => {
-      if (xhr.readyState) {
+      if (xhr.readyState === 4) {
         if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
           resolve && resolve(xhr.responseText)
         } else {
@@ -44,10 +44,10 @@ function ajax(options) {
 
     // 处理请求参数
     let paramArr = []
-    let encodeData
-    if (data instanceof Object) {
+    let encodeData;
+    if (data instanceof Object)  {
       for (let key in data) {
-        paramArr.push(encodeURLComponent(key) + '=' + encodeURLComponent(data[key]))
+        paramArr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       }
       encodeData = paramArr.join('&')
     }
@@ -55,8 +55,11 @@ function ajax(options) {
     // get参数拼接
     if (method === 'get') {
       const index = url.indexOf('?')
-      if (index === -1) url += '?'
-      else if (index !== url.length - 1) url += '&'
+      if (index === -1) {
+        url += '?'
+      } else if (index !== url.length - 1) {
+        url += '&'
+      }
 
       url += encodeData
     }
@@ -68,4 +71,5 @@ function ajax(options) {
       xhr.send(encodeData)
     } 
   })
-} 
+}
+
