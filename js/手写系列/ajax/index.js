@@ -32,10 +32,24 @@ function ajax(options) {
     // 监听状态变化回调
     xhr.onreadystatechange = () => {
       if (xhr.readyState) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          
+        if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+          resolve && resolve(xhr.responseText)
+        } else {
+          reject && reject()
         }
       }
+    }
+    // 错误的回调
+    xhr.onerror = err => reject && reject(err)
+
+    // 处理请求
+    let paramArr = []
+    let encodeData
+    if (data instanceof Object) {
+      for (let key in data) {
+        paramArr.push(encodeURLComponent(key) + '=' + encodeURLComponent(data[key]))
+      }
+      encodeData = paramArr.join('&')
     }
   })
 } 
@@ -46,6 +60,9 @@ ajax({
   method: 'GET',
   url: '',
   async: true,
-  data: {},
+  data: {
+    a: 1,
+    b: 2
+  },
   timeOut: 10000
 })
