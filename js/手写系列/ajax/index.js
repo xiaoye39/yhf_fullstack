@@ -45,7 +45,7 @@ function ajax(options) {
     // 处理请求参数
     let paramArr = []
     let encodeData;
-    if (data instanceof Object)  {
+    if (data instanceof Object) {
       for (let key in data) {
         paramArr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       }
@@ -69,7 +69,7 @@ function ajax(options) {
     else {
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
       xhr.send(encodeData)
-    } 
+    }
   })
 }
 
