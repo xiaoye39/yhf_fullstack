@@ -23,7 +23,21 @@ function ajax(options) {
   const data = options.data
 
   const xhr = new XMLHttpRequest()
+  if (options.timeout && options.timeout > 0) {
+    xhr.timeout = options.timeout
+  }
 
+  return new Promise((resolve, reject) => {
+    xhr.ontimeout = () => reject && reject('请求超时')
+    // 监听状态变化回调
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          
+        }
+      }
+    }
+  })
 } 
 
 
@@ -33,5 +47,5 @@ ajax({
   url: '',
   async: true,
   data: {},
-  
+  timeOut: 10000
 })
