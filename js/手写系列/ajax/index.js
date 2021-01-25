@@ -42,7 +42,7 @@ function ajax(options) {
     // 错误的回调
     xhr.onerror = err => reject && reject(err)
 
-    // 处理请求
+    // 处理请求参数
     let paramArr = []
     let encodeData
     if (data instanceof Object) {
@@ -50,6 +50,13 @@ function ajax(options) {
         paramArr.push(encodeURLComponent(key) + '=' + encodeURLComponent(data[key]))
       }
       encodeData = paramArr.join('&')
+    }
+
+    // get参数拼接
+    if (method === 'get') {
+      const index = url.indexOf('?')
+      if (index === -1) url += '?'
+      else if (index !== url.length - 1)
     }
   })
 } 
