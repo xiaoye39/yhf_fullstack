@@ -56,8 +56,17 @@ function ajax(options) {
     if (method === 'get') {
       const index = url.indexOf('?')
       if (index === -1) url += '?'
-      else if (index !== url.length - 1)
+      else if (index !== url.length - 1) url += '&'
+
+      url += encodeData
     }
+
+    xhr.open(method, url, async)
+    if (method === 'get') xhr.send(null)
+    else {
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+      xhr.send(encodeData)
+    } 
   })
 } 
 
