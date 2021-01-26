@@ -13,3 +13,6 @@ Dom树 + CSSOM树 = render树
 
 # 回流
 根据render树绘制页面布局
+
+
+# 为什么操作DOM性能很差？
