@@ -38,4 +38,8 @@ html, css
 
 # 减少重绘和回流
 1. 用visibility 代替 display: none
-2. 不要把节点
+2. 不要把节点属性值放在一个循环里面当成循环的变量
+for (let i = 0; i < 1000; i++) {
+  console.log(document.querySelector('.test').style.offsetTop);
+}
+3. 尽量不要用table布局
