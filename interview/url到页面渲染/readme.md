@@ -34,7 +34,8 @@ html, css
 1. 改变window大小
 2. 改变字体大小
 3. display: none
-  
+
 
 # 减少重绘和回流
-
+1. 用visibility 代替 display: none
+2. 不要把节点
