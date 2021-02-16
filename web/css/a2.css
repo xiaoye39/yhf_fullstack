@@ -1,0 +1,28 @@
+h2 span{
+    font-size: 15px;
+    color: rgb(185,185,185);
+}
+h2{
+    color: rgb(15,130,255);
+    text-align: center;
+}
+abbr{
+    font-size: 20px;
+    color: rgb(255,70,90);
+}
+.one{
+    text-indent: 3em;
+}
+.two{
+    text-indent: 2em;
+}
+.three{
+    text-indent: 2em;
+    color: rgb(80,150,60);
+    text-decoration: underline;
+}
+em{
+    font-size: 18px;
+    font-style: italic;
+    color: rgb(250,150,10);
+}
