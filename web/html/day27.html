@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>ID选择器</title>
+</head>
+<body>
+    <input type="button" value="输入的值为:">
+    <input type="text" id="textInput" name="test">
+    <script src="jquery-1.6.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("input[type='button']").click(function()
+            {
+                var inputValue = $("#textInput").val();
+                alert(inputValue);
+            });
+        });
+    </script>
+</body>
+</html>
