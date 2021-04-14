@@ -2,7 +2,7 @@
   <div class="star-login">
     <h1>登录</h1>
     <div class="login-wrapper">
-      <div class="avatar"></div>
+      <div class="avatar" :style="`background-image: url(${avatar})`"></div>
 
       <div class="input-group">
         <label for="username">账号</label>
@@ -13,7 +13,11 @@
         <label for="userpwd">密码</label>
         <input type="password" id="userpwd" v-model="userpwd">
       </div>
+
+      <p class="forgot-pwd">忘记密码</p>
+      <div class="sign">登录</div>
     </div>
+    <p class="register">新用户？点击这里注册</p>
   </div>
 </template>
 
@@ -21,6 +25,7 @@
 export default {
   data () {
     return {
+      avatar: require('./../../assets/img/raw_1512446140.jpeg'),
       username: '',
       userpwd: ''
     }
