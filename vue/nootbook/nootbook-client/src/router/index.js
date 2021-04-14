@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import StarLogin from '@views/login/StarLogin'
+import StarLogin from '../views/login/StarLogin.vue'
 
 Vue.use(VueRouter)
 
