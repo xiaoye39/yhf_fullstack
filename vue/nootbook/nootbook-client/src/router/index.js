@@ -1,9 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import StarLogin from '@views/login/StarLogin'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/starLogin',
+    name: 'starLogin',
+    component: StarLogin,
+    meta: {
+      title: '登录'
+    }
+  }
 ]
 
 const router = new VueRouter({
