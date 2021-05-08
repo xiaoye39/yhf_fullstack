@@ -9,7 +9,7 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let serverUrl = "https://wap.biqiuge8.com/" //访问云服务的地址
+  let serverUrl = "https://m.bqkan8.com/" //访问云服务的地址
   const result = await superagent.get(serverUrl).charset('gb2312') //取决于网页的编码方式
   const data = result.text || '' //result.text返回的是html结构
   const $ = cheerio.load(data)
