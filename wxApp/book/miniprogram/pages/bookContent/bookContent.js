@@ -1,6 +1,6 @@
 // miniprogram/pages/bookContent/bookContent.js
-const db = wx.cloud.database
-const app = getApp()
+const db = wx.cloud.database();
+const app = getApp();
 Page({
 
   /**
@@ -52,7 +52,7 @@ Page({
       const data = res.data || ''
       if (data.length > 0){ // 书架存在这本书
         if(data[0].bookUrl != url) {
-          const id = data[0]._id || ''
+          const id = data[0]._id || '';
           db.collection('book').doc(id).update({
             data: {
               bookUrl: url

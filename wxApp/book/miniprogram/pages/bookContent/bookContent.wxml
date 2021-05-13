@@ -9,3 +9,4 @@
 	<text class="next" data-url="{{next}}" bindtap="nextPage">下一章</text>
 </view>
 
+ 

@@ -15,7 +15,7 @@ Page({
     pre: '',
     next: '',
     preAble: false,
-    preNext: false,
+    nextAble: false,
   },
   getSection(url) {
     wx.showLoading({
@@ -39,13 +39,10 @@ Page({
         next: result.next,
         preAble: result.pre === '' ? true : false,
         nextAble: result.next === '' ? true : false,
-        page: result.next.split('/')[2] - 1
-
-
+        page: (result.next.split('/')[2]) - 1
       })
-    })
+    }) 
   },
-  // 去看小说
 
   // 上一页
   prePage(){
@@ -82,13 +79,13 @@ navtoUrl(e){
         let data = res.data || []
         if(data.length > 0){
           if(data[0].bookUrl != url){
-            const id = data[0]._id || ''
+            const id = data[0]._id || '';
             db.collection('book').doc(id).update({
               data: {
                 bookUrl: url
               }
             }).then(res => {
-              // console.log(res)
+              console.log(res)
             })
           }
         }
@@ -96,7 +93,7 @@ navtoUrl(e){
     }
 
     wx.navigateTo({
-      url: `../bookContent/bookContent?url=${url}&name=${this.data.bookDetailData.name}&imgUrl=${this.data.bookDetailData.imgUrl}`
+      url: `../bookContent/bookContent?url=${url}&name=${this.data.bookDetailData.name}&imgUrl=${this.data.bookDetailData.imgurl}`
     })
 },
 joinBook(e) {
@@ -112,7 +109,7 @@ joinBook(e) {
           userId: app.globalData.openid,
           bookName: this.data.bookDetailData.name,
           bookUrl: url,
-          imgurl: this.data.bookDetailData.imgUrl
+          imgurl: this.data.bookDetailData.imgurl
         }
       }).then( res => {
         // console.log(res)

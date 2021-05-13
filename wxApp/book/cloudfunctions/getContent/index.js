@@ -13,7 +13,6 @@ exports.main = async (event, context) => {
   const result = await superagent.get(serverUrl).charset('gb2312') //取决于网页的编码方式
   const data = result.text || '' //result.text返回的是html结构
   const $ = cheerio.load(data, { decodeEntities: false})
-
   let content = $('#chaptercontent').text()
   let contentH = $('#chaptercontent').html()
   // let sectionName = $()
