@@ -34,7 +34,6 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "appid": "wx2066ca98e6ac1511",
   "projectname": "book",
   "libVersion": "2.8.1",
   "simulatorType": "wechat",
