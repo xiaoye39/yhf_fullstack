@@ -9,7 +9,10 @@
 </head>
 <body>
   <div id="app">
-    {{msg}}
+      <div v-if="isLogin">
+          {{msg}}
+      </div>
+    
   </div>
 
   <script>
@@ -24,7 +27,8 @@
     let app = new Vue({
       el: '#app',
       data: {
-        msg: 'hello world'
+        msg: 'hello world',
+        isLogin: true
       },
 
       created() {
