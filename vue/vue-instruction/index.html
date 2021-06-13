@@ -17,9 +17,12 @@
         <div v-else>
             {{msg2}}
         <div> -->
-        <div v-show="isLogin" >
+        <!-- <div v-show="isLogin" >
             {{msg}}
-        </div>
+        </div> -->
+        <ul class="news">
+            <li class="item" v-for="item in news">{{item.title}}</li>
+        </ul>
     </div>
 
     <script>
@@ -37,15 +40,12 @@
                 msg2: '你好',
                 isLogin: false,
                 news: [
-                    {
-                        title: '"空降"不到一周 韩俊任吉林代省长 曾是刘鹏"副手"'
-                    },
-                    {
-                        
-                    }
+                    { title: '"空降"不到一周 韩俊任吉林代省长 曾是刘鹏"副手"'},
+                    { title: '上门女婿成村霸，敲诈勒索故意纵火还打伤司法人员'},
+                    { title: 'X光显示肚子内有异物 港媒:黄之峰被关医院单人囚室'},
+                    { title: '特朗普突然出手，举行了史上最短一次记者会！'}
                 ]
-            },
-
+            }
             // created() {
             //     this.msg = 'hello vue!'
             // }
