@@ -11,10 +11,15 @@
 
 <body>
     <div id="app">
-        <div v-if="isLogin">
+        <!-- <div v-if="isLogin">
             {{msg}}
         </div>
-
+        <div v-else>
+            {{msg2}}
+        <div> -->
+        <div v-show="isLogin" >
+            {{msg}}
+        </div>
     </div>
 
     <script>
@@ -23,19 +28,19 @@
         // let data = {
         //   msg: 'hello world'
         // }
-
         // data.msg = '你好'
 
         let app = new Vue({
             el: '#app',
             data: {
                 msg: 'hello world',
-                isLogin: true
+                msg2: '你好',
+                isLogin: false
             },
 
-            created() {
-                this.msg = 'hello vue!'
-            }
+            // created() {
+            //     this.msg = 'hello vue!'
+            // }
         })
     </script>
 </body>
