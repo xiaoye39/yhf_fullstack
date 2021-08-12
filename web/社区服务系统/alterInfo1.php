@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+body{ width: 1500px;
+height: 500px;
+color:#000;}
+*{background: #FAEBD7;
+	   margin:0px;
+	   padding:0px;
+
+}
+.d1{font-size: 70px;
+font-family:'华文行楷';
+	width: 100%;
+height:50;
+padding-left:300px;
+background:#ffcccc; } 
+.d1 .d11{
+
+
+}
+.main
+{float: left;
+margin:0px 0px;
+  position:relative;
+} 
+	.nav li {
+		list-style:none;
+		border: 1px solid #90bade;
+
+		}
+
+		.nav li a{
+		display:block;
+		height:36px;
+		color:#000;
+		line-height:36px;
+		background-color:#ffcccc;
+		border-right:10px solid #ffcccc;
+		border-left:10px solid #ffcccc;
+		padding-left:10px;
+		text-decoration:none;
+		font-size:13px;
+		border-bottom:1px solid #ffcccc;
+			}
+.nav {
+		background:#ff6633;
+		border-right:1px solid #333;
+		margin:0;
+		height: 100%;
+		}
+
+		.nav li a:hover{
+				background-color:#FAEBD7;
+				border-right:10px solid #FAEBD7;
+				border-left:10px solid #FAEBD7;
+			}	
+
+.if1{
+width:75%;
+
+height:80%;
+float: left;
+}
+
+</style>
+</head>
+<body>
+
+<?php
+
+
+    header("content-type:text/html;charset=utf-8");
+$fromurl="http://localhost/"; 
+if( $_SERVER['HTTP_REFERER'] == "" )
+ {
+ header("Location:".$fromurl); exit;
+ }
+
+
+        if (!isset($_SESSION)) {
+    session_start();
+}
+$_SESSION['pageId']="alterInfo1.php";
+$_SESSION['offer']=$SESSION['userName'];
+?>
+
+<div class="d1">
+<span class="d11">个人信息查询</span>
+<a href="logout.php">退出登录</a>
+
+
+
+</div>
+<div class="main">
+<ul class="nav">
+				<li><a href="self.php" target="iframe_a">首页</a></li>
+                <li><a href="selfinf.php" target="iframe_a">个人信息查看</a></li>
+				<li><a href="alter.php" target="iframe_a">个人信息修改</a></li>
+				<li><a href="mycompaint.php" target="iframe_a">个人已投诉信息</a></li>
+				<li><a href="complain.html" target="iframe_a">投诉</a></li>
+				<li><a href="chaxun.php"  target="iframe_a">查询投诉信息</a></li>
+			
+</ul>
+<img src="0mmi43jqmqujpg.jpg"/>
+</div>
+<!-- </frame>
+<frame> -->
+<iframe src="self.php" name="iframe_a" class="if1">
+</iframe>
+<!-- </frame>
+</frameset>
+</frameset> -->
+
+
+
+
+
+
+</table> 
+</div>
+</table>
+</div>
+
+$_SESSION['url1']='alterInfo.html';
+</body>
+</html>
